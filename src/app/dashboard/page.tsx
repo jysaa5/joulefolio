@@ -1,38 +1,34 @@
+import type { EnergySummary } from "@/entities/energy/model/types";
 import { energySummary } from "@/shared/mock/energyMock";
+import EnergyMetricCard from "@/widgets/dashboard/ui/EnergyMetricCard";
+import PortfolioSummaryCard from "@/widgets/dashboard/ui/PortfolioSummaryCard";
+import QuickActionCard from "@/widgets/dashboard/ui/QuickActionCard";
+import RecentActivityCard from "@/widgets/dashboard/ui/RecentActivityCard";
 
 export default function DashboardPage() {
-  const totalAsset = energySummary.surplus + energySummary.battery;
+  const summary: EnergySummary = energySummary;
+  const totalAsset = summary.surplus + summary.battery;
+
+  const recentActivities = ["Sold 3.0 kWh to Alice", "Stored 2.0 kWh in battery", "Generated 24.3 kWh today"];
 
   return (
-    <main className="p-6">
+    <main className="mx-auto max-w-6xl p-6">
       <h1 className="text-2xl font-bold">Joulefolio Dashboard</h1>
 
-      <section className="mt-6 rounded-xl border p-4">
-        <h2 className="text-lg font-semibold">Energy Portfolio</h2>
-        <p className="mt-2 text-3xl font-bold">{totalAsset.toFixed(1)} kWh</p>
-        <p className="text-sm text-gray-500">Total energy asset</p>
+      <div className="mt-6">
+        <PortfolioSummaryCard totalAsset={totalAsset} />
+      </div>
+
+      <section className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <EnergyMetricCard label="Generated" value={summary.generated} description="Total energy generated today" />
+        <EnergyMetricCard label="Consumed" value={summary.consumed} description="Total energy consumed today" />
+        <EnergyMetricCard label="Surplus" value={summary.surplus} description="Available energy for trade or storage" />
+        <EnergyMetricCard label="Battery" value={summary.battery} description="Stored energy asset" />
       </section>
 
-      <section className="mt-6 grid gap-4 md:grid-cols-2">
-        <div className="rounded-xl border p-4">
-          <p className="text-sm text-gray-500">Generated</p>
-          <p className="text-2xl font-semibold">{energySummary.generated} kWh</p>
-        </div>
-
-        <div className="rounded-xl border p-4">
-          <p className="text-sm text-gray-500">Consumed</p>
-          <p className="text-2xl font-semibold">{energySummary.consumed} kWh</p>
-        </div>
-
-        <div className="rounded-xl border p-4">
-          <p className="text-sm text-gray-500">Surplus</p>
-          <p className="text-2xl font-semibold">{energySummary.surplus} kWh</p>
-        </div>
-
-        <div className="rounded-xl border p-4">
-          <p className="text-sm text-gray-500">Battery</p>
-          <p className="text-2xl font-semibold">{energySummary.battery} kWh</p>
-        </div>
+      <section className="mt-6 grid gap-4 lg:grid-cols-2">
+        <QuickActionCard href="/trade" title="Trade Energy" description="Sell or share your surplus energy with others." buttonText="Go to Trade" />
+        <RecentActivityCard items={recentActivities} />
       </section>
     </main>
   );
