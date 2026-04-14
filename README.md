@@ -1,2 +1,17 @@
-# joulefolio
-Joulefolio is an energy portfolio platform that enables prosumers to monitor, manage, and trade energy as a digital asset.
+# Joulefolio
+
+Joulefolio is an energy portfolio platform for prosumers.
+
+It allows users to monitor energy production, manage surplus energy, and trade energy within a community.
+
+## Features (Planned)
+
+- Energy portfolio dashboard
+- P2P energy trading
+- Community-based energy sharing
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS
