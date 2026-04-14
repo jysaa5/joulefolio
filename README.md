@@ -15,3 +15,5 @@ It allows users to monitor energy production, manage surplus energy, and trade e
 - Next.js
 - TypeScript
 - Tailwind CSS
+- Zustand (planned)
+- React Query (planned)
