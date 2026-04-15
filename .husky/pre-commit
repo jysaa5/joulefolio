@@ -1,3 +1,5 @@
 #!/usr/bin/env sh
 
-pnpm exec lint-staged
+export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
+
+/usr/local/bin/pnpm exec lint-staged
