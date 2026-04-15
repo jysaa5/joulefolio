@@ -16,9 +16,9 @@ Joulefolio is a Next.js App Router application for energy portfolio management, 
 - `src/widgets`: reusable UI widgets
 
 ## Commands
-- install: `npm install`
-- dev: `npm run dev`
-- test: `npm run test`
+- install: `pnpm install`
+- dev: `pnpm run dev`
+- test: `pnpm run test`
 
 ## Coding Rules
 - Use functional React components
