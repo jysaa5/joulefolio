@@ -26,7 +26,11 @@ export default function Card({
 }: CardProps) {
   return (
     <Component
-      className={cn("rounded-2xl border border-(--color-border) bg-(--color-card) shadow-sm", paddingClassName[padding], className)}
+      className={cn(
+        "rounded-2xl border border-(--color-border) bg-(--color-card) shadow-sm",
+        paddingClassName[padding],
+        className,
+      )}
       {...props}
     >
       {children}

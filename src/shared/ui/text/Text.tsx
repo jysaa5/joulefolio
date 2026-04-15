@@ -35,7 +35,10 @@ export default function Text({
   ...props
 }: TextProps) {
   return (
-    <Component className={cn(sizeClassName[size], toneClassName[tone], className)} {...props}>
+    <Component
+      className={cn(sizeClassName[size], toneClassName[tone], className)}
+      {...props}
+    >
       {children}
     </Component>
   );
