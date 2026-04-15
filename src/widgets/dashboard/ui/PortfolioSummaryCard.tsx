@@ -2,12 +2,14 @@ import { Card } from "@/shared/ui";
 
 type PortfolioSummaryCardProps = {
   totalAsset: number;
+  todayEarning: number;
   description?: string;
 };
 
 export default function PortfolioSummaryCard({
   totalAsset,
-  description = "Total energy asset",
+  todayEarning,
+  description = "Total energy asset qavailable for use, storage, or trade",
 }: PortfolioSummaryCardProps) {
   return (
     <Card padding="lg">
@@ -20,6 +22,19 @@ export default function PortfolioSummaryCard({
       <p className="mt-1 text-sm text-(--color-muted-foreground)">
         {description}
       </p>
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div className="rounded-xl border border-border p-4">
+          <p className="text-sm text-muted-foreground">Today&apos;s Earning</p>
+          <p className="mt-2 text-2xl font-semibold text-foreground">
+            +{todayEarning.toFixed(1)} kWh
+          </p>
+        </div>
+
+        <div className="rounded-xl border border-border p-4">
+          <p className="text-sm text-muted-foreground">Portfolio Status</p>
+          <p className="mt-2 text-2xl font-semibold text-foreground">Stable</p>
+        </div>
+      </div>
     </Card>
   );
 }

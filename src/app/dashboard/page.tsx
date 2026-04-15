@@ -24,7 +24,10 @@ export default function DashboardPage() {
       </h1>
 
       <section className="mt-8">
-        <PortfolioSummaryCard totalAsset={totalAsset} />
+        <PortfolioSummaryCard
+          totalAsset={totalAsset}
+          todayEarning={summary.surplus}
+        />
       </section>
 
       <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
