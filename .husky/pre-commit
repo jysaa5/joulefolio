@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
 
-export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
+export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-/usr/local/bin/pnpm exec lint-staged
+echo "PATH=$PATH"
+which node || echo "node not found"
+which pnpm || echo "pnpm not found"
+
+pnpm exec lint-staged
