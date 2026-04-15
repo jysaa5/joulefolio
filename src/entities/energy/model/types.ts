@@ -10,3 +10,9 @@ export type EnergySummary = {
   surplus: number;
   battery: number;
 };
+
+export type EnergyTrendPoint = {
+  time: string;
+  generated: number;
+  consumed: number;
+};
