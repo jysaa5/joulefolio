@@ -29,7 +29,6 @@ export default function PortfolioSummaryCard({
             +{todayEarning.toFixed(1)} kWh
           </p>
         </div>
-
         <div className="rounded-xl border border-border p-4">
           <p className="text-sm text-muted-foreground">Portfolio Status</p>
           <p className="mt-2 text-2xl font-semibold text-foreground">Stable</p>
