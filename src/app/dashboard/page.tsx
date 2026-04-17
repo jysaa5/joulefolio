@@ -1,6 +1,7 @@
 import type { EnergySummary } from "@/entities/energy/model/types";
 import { energySummary } from "@/shared/mock/energyMock";
 import { energyTrendData } from "@/shared/mock/energyTrendMock";
+import EnergyBreakdownCard from "@/widgets/dashboard/ui/EnergyBreakdownCard";
 import EnergyMetricCard from "@/widgets/dashboard/ui/EnergyMetricCard";
 import EnergyTrendChart from "@/widgets/dashboard/ui/EnergyTrendChart";
 import PortfolioSummaryCard from "@/widgets/dashboard/ui/PortfolioSummaryCard";
@@ -58,6 +59,7 @@ export default function DashboardPage() {
       </section>
 
       <section className="mt-8 grid gap-4 lg:grid-cols-2">
+        <EnergyBreakdownCard consumed={12} stored={6} availableToTrade={6.3} />
         <QuickActionCard
           href="/trade"
           title="Trade Energy"
