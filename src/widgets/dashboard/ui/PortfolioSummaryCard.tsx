@@ -1,5 +1,8 @@
 import { Card } from "@/shared/ui";
 
+/**
+ * currentStatus: Stable, High production, Balanced usage, Ready to trade
+ */
 type PortfolioSummaryCardProps = {
   totalAsset: number;
   todayEarning: number;
