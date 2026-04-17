@@ -4,12 +4,14 @@ type PortfolioSummaryCardProps = {
   totalAsset: number;
   todayEarning: number;
   description?: string;
+  currentStatus?: string;
 };
 
 export default function PortfolioSummaryCard({
   totalAsset,
   todayEarning,
   description = "Total energy asset qavailable for use, storage, or trade",
+  currentStatus = "Stable",
 }: PortfolioSummaryCardProps) {
   return (
     <Card padding="lg">
@@ -31,7 +33,9 @@ export default function PortfolioSummaryCard({
         </div>
         <div className="rounded-xl border border-border p-4">
           <p className="text-sm text-muted-foreground">Portfolio Status</p>
-          <p className="mt-2 text-2xl font-semibold text-foreground">Stable</p>
+          <p className="mt-2 text-2xl font-semibold text-foreground">
+            {currentStatus}
+          </p>
         </div>
       </div>
     </Card>

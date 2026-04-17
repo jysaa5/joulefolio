@@ -30,4 +30,16 @@ describe("PortfolioSummaryCard", () => {
 
     expect(screen.getByText("Custom energy summary")).toBeInTheDocument();
   });
+
+  it("renders a portfolio status when provided", () => {
+    render(
+      <PortfolioSummaryCard
+        totalAsset={42.0}
+        todayEarning={1.2}
+        currentStatus="High production"
+      />,
+    );
+
+    expect(screen.getByText("High production")).toBeInTheDocument();
+  });
 });
