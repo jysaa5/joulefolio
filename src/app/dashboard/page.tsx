@@ -11,11 +11,31 @@ import RecentActivityCard from "@/widgets/dashboard/ui/RecentActivityCard";
 export default function DashboardPage() {
   const summary: EnergySummary = energySummary;
   const totalAsset = summary.surplus + summary.battery;
+  const todayEarning = 3.2;
 
-  const recentActivities = [
-    "Sold 3.0 kWh to Alice",
-    "Stored 2.0 kWh in battery",
-    "Generated 24.3 kWh today",
+  const activityItems = [
+    {
+      id: "1",
+      type: "trade" as const,
+      title: "Sold 3.0 kWh to Alice",
+      description:
+        "Your surplus energy was successfully traded this afternoon.",
+      time: "2h ago",
+    },
+    {
+      id: "2",
+      type: "community" as const,
+      title: "New community post from Minho",
+      description: "Minho shared today's solar production update.",
+      time: "4h ago",
+    },
+    {
+      id: "3",
+      type: "trade" as const,
+      title: "Stored 2.0 kWh in battery",
+      description: "A portion of today's surplus energy has been saved.",
+      time: "6h ago",
+    },
   ];
 
   return (
@@ -27,7 +47,7 @@ export default function DashboardPage() {
       <section className="mt-8">
         <PortfolioSummaryCard
           totalAsset={totalAsset}
-          todayEarning={summary.surplus}
+          todayEarning={todayEarning}
         />
       </section>
 
@@ -66,7 +86,10 @@ export default function DashboardPage() {
           description="Sell or share your surplus energy with others."
           buttonText="Go to Trade"
         />
-        <RecentActivityCard items={recentActivities} />
+      </section>
+
+      <section className="mt-8">
+        <RecentActivityCard items={activityItems} />
       </section>
     </main>
   );
