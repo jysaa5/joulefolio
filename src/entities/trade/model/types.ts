@@ -1,8 +1,10 @@
+export type TradeStatus = "pending" | "completed" | "cancelled";
+
 export type Trade = {
   id: string;
   targetName: string;
   amount: number; // kWh
   price: number;
-  status: "pending" | "completed" | "cancelled";
+  status: TradeStatus;
   createdAt: string;
 };
