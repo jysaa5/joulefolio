@@ -11,6 +11,7 @@ Joulefolio is a Next.js energy portfolio application for prosumers. It focuses o
 - Landing page with entry points to the dashboard and trading flow
 - Dashboard UI for portfolio summary, energy metrics, trend visualization, and recent activity
 - Trade UI for available energy, trade submission, and trade history
+- Community UI for post feed, category filters, and local ranking highlights
 - Shared mock-data driven development for domain modeling and presentation work
 
 ### Tech Stack
@@ -78,12 +79,13 @@ docs/
 - `/`: landing page
 - `/dashboard`: energy portfolio dashboard
 - `/trade`: energy trading page
-- `/community`: community page placeholder
+- `/community`: community feed with filters, CTA, and ranking cards
 
 ### Development Notes
 
 - The current UI is mostly driven by mock data under `src/shared/mock`
 - Domain types are organized by entity under `src/entities`
+- Community posts are modeled in `src/entities/post` and rendered through widgets in `src/widgets/community`
 - Widget components keep page routes relatively thin and presentation-focused
 
 ## 한국어
@@ -95,6 +97,7 @@ Joulefolio는 프로슈머를 위한 Next.js 기반 에너지 포트폴리오 �
 - 대시보드와 거래 화면으로 이동할 수 있는 랜딩 페이지
 - 포트폴리오 요약, 에너지 지표, 추이 시각화, 최근 활동을 보여주는 대시보드 UI
 - 사용 가능 에너지, 거래 등록, 거래 내역을 다루는 거래 UI
+- 게시글 피드, 카테고리 필터, 지역 랭킹 하이라이트를 제공하는 커뮤니티 UI
 - 도메인 모델링과 화면 작업을 위한 공용 목 데이터 기반 개발
 
 ### 기술 스택
@@ -162,10 +165,11 @@ docs/
 - `/`: 랜딩 페이지
 - `/dashboard`: 에너지 포트폴리오 대시보드
 - `/trade`: 에너지 거래 페이지
-- `/community`: 커뮤니티 페이지 플레이스홀더
+- `/community`: 필터, 참여 유도 카드, 랭킹 카드를 포함한 커뮤니티 피드
 
 ### 개발 메모
 
 - 현재 UI는 `src/shared/mock` 아래의 목 데이터를 중심으로 동작합니다
 - 도메인 타입은 `src/entities` 아래에서 엔티티별로 관리합니다
+- 커뮤니티 게시글 모델은 `src/entities/post`에 있고, 화면 구성은 `src/widgets/community`에서 담당합니다
 - 위젯 컴포넌트를 활용해 페이지 라우트는 비교적 얇고 선언적인 구조를 유지합니다
