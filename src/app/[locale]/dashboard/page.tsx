@@ -7,6 +7,7 @@ import EnergyTrendChart from "@/widgets/dashboard/ui/EnergyTrendChart";
 import PortfolioSummaryCard from "@/widgets/dashboard/ui/PortfolioSummaryCard";
 import QuickActionCard from "@/widgets/dashboard/ui/QuickActionCard";
 import RecentActivityCard from "@/widgets/dashboard/ui/RecentActivityCard";
+import { useTranslations } from "next-intl";
 
 export default function DashboardPage() {
   const summary: EnergySummary = energySummary;
@@ -38,11 +39,11 @@ export default function DashboardPage() {
     },
   ];
 
+  const t = useTranslations("dashboard");
+
   return (
     <main className="mx-auto max-w-6xl px-6 py-8">
-      <h1 className="text-2xl font-bold tracking-tight">
-        Joulefolio Dashboard
-      </h1>
+      <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
 
       <section className="mt-8">
         <PortfolioSummaryCard
