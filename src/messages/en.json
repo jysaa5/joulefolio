@@ -1,0 +1,19 @@
+{
+  "home": {
+    "hello": "Hello",
+    "welcome": "Welcome to Joulefolio",
+    "dashboard": "Go to Dashboard",
+    "trade": "Go to Trade"
+  },
+  "common": {
+    "dashboard": "Dashboard",
+    "trade": "Trade",
+    "community": "Community"
+  },
+  "dashboard": {
+    "title": "Joulefolio Dashboard",
+    "energyPortfolio": "Energy Portfolio",
+    "todayEarning": "Today's Earning",
+    "portfolioStatus": "Portfolio Status"
+  }
+}

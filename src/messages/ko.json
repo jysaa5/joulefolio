@@ -1,0 +1,19 @@
+{
+  "home": {
+    "hello": "안녕하세요",
+    "welcome": "Joulefolio에 오신 것을 환영합니다",
+    "dashboard": "대시보드로 이동",
+    "trade": "거래로 이동"
+  },
+  "common": {
+    "dashboard": "대시보드",
+    "trade": "거래",
+    "community": "커뮤니티"
+  },
+  "dashboard": {
+    "title": "Joulefolio 대시보드",
+    "energyPortfolio": "에너지 포트폴리오",
+    "todayEarning": "오늘의 수익",
+    "portfolioStatus": "포트폴리오 상태"
+  }
+}
