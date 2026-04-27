@@ -2,7 +2,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import AppHeader from "@/widgets/header/ui/AppHeader";
 import { Geist, Geist_Mono } from "next/font/google";
-import { routing } from "@/i18n/routing";
+import { routing } from "@/i18n/config/routing";
 import { notFound } from "next/navigation";
 
 const geistSans = Geist({
