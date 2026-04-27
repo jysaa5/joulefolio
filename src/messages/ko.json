@@ -10,6 +10,34 @@
     "trade": "거래",
     "community": "커뮤니티"
   },
+  "trade": {
+    "title": "거래",
+    "availableEnergy": {
+      "label": "사용 가능 에너지",
+      "description": "거래하거나 공유할 준비가 되었습니다.",
+      "kwh": "kWh"
+    },
+    "form": {
+      "title": "에너지 거래",
+      "targetLabel": "대상 선택",
+      "amountLabel": "거래량 ({unit})",
+      "estimatedPrice": "예상 금액",
+      "submit": "거래 요청",
+      "kwh": "kWh",
+      "targets": {
+        "alice": "Alice",
+        "bob": "Bob"
+      }
+    },
+    "list": {
+      "title": "거래 내역",
+      "kwh": "kWh",
+      "status": {
+        "completed": "완료",
+        "pending": "대기 중"
+      }
+    }
+  },
   "dashboard": {
     "title": "Joulefolio 대시보드",
     "energyPortfolio": "에너지 포트폴리오",

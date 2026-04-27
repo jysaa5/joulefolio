@@ -10,6 +10,34 @@
     "trade": "Trade",
     "community": "Community"
   },
+  "trade": {
+    "title": "Trade",
+    "availableEnergy": {
+      "label": "Available Energy",
+      "description": "Ready for trading or sharing",
+      "kwh": "kWh"
+    },
+    "form": {
+      "title": "Trade Energy",
+      "targetLabel": "Select Target",
+      "amountLabel": "Amount ({unit})",
+      "estimatedPrice": "Estimated Price",
+      "submit": "Request Trade",
+      "kwh": "kWh",
+      "targets": {
+        "alice": "Alice",
+        "bob": "Bob"
+      }
+    },
+    "list": {
+      "title": "Trade History",
+      "kwh": "kWh",
+      "status": {
+        "completed": "Completed",
+        "pending": "Pending"
+      }
+    }
+  },
   "dashboard": {
     "title": "Joulefolio Dashboard",
     "energyPortfolio": "Energy Portfolio",

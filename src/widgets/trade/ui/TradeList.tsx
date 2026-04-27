@@ -1,13 +1,16 @@
 import { Trade } from "@/entities/trade/model/types";
+import { useTranslations } from "next-intl";
 
 type Props = {
   trades: Trade[];
 };
 
 export default function TradeList({ trades }: Props) {
+  const t = useTranslations("trade.list");
+
   return (
     <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-foreground">Trade History</h2>
+      <h2 className="text-lg font-semibold text-foreground">{t("title")}</h2>
 
       <ul className="mt-4 space-y-3">
         {trades.map((trade) => (
@@ -20,12 +23,12 @@ export default function TradeList({ trades }: Props) {
                 {trade.targetName}
               </p>
               <p className="text-xs text-muted-foreground">
-                {trade.amount} kWh
+                {trade.amount} {t("kwh")}
               </p>
             </div>
 
             <span className="text-xs text-muted-foreground">
-              {trade.status}
+              {t(`status.${trade.status}`)}
             </span>
           </li>
         ))}
