@@ -1,20 +1,22 @@
 "use client";
 
 import type { PostCategory } from "@/entities/post/model/types";
+import { useTranslations } from "next-intl";
 
 type Props = {
   selected: PostCategory;
   onChange: (category: PostCategory) => void;
 };
 
-const filters: { label: string; value: PostCategory }[] = [
-  { label: "All", value: "all" },
-  { label: "Friends", value: "friends" },
-  { label: "Local", value: "local" },
-  { label: "Reviews", value: "review" },
-];
-
 export default function CommunityFilter({ selected, onChange }: Props) {
+  const t = useTranslations("community.filters");
+  const filters: { label: string; value: PostCategory }[] = [
+    { label: t("all"), value: "all" },
+    { label: t("friends"), value: "friends" },
+    { label: t("local"), value: "local" },
+    { label: t("review"), value: "review" },
+  ];
+
   return (
     <div className="flex flex-wrap gap-2">
       {filters.map((filter) => {

@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 const rankingItems = [
   { rank: 1, name: "Jiyeon", carbonSaved: 12.4 },
   { rank: 2, name: "Alice", carbonSaved: 9.8 },
@@ -5,12 +7,12 @@ const rankingItems = [
 ];
 
 export default function CommunityRankingCard() {
+  const t = useTranslations("community.ranking");
+
   return (
     <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-foreground">Green Ranking</h2>
-      <p className="mt-1 text-sm text-muted-foreground">
-        Top carbon savers this month
-      </p>
+      <h2 className="text-lg font-semibold text-foreground">{t("title")}</h2>
+      <p className="mt-1 text-sm text-muted-foreground">{t("description")}</p>
 
       <ul className="mt-5 space-y-3">
         {rankingItems.map((item) => (
@@ -22,7 +24,9 @@ export default function CommunityRankingCard() {
               <p className="text-sm font-medium text-foreground">
                 #{item.rank} {item.name}
               </p>
-              <p className="text-xs text-muted-foreground">Carbon saved</p>
+              <p className="text-xs text-muted-foreground">
+                {t("carbonSaved")}
+              </p>
             </div>
 
             <p className="text-sm font-semibold text-foreground">

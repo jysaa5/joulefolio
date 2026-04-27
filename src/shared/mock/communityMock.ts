@@ -1,5 +1,7 @@
 import type { Post } from "@/entities/post/model/types";
 
+const now = Date.now();
+
 export const communityPosts: Post[] = [
   {
     id: "1",
@@ -11,7 +13,7 @@ export const communityPosts: Post[] = [
     likes: 24,
     comments: 5,
     category: "friends",
-    createdAt: "2h ago",
+    createdAt: new Date(now - 2 * 60 * 60 * 1000).toISOString(),
   },
   {
     id: "2",
@@ -23,7 +25,7 @@ export const communityPosts: Post[] = [
     likes: 18,
     comments: 3,
     category: "review",
-    createdAt: "4h ago",
+    createdAt: new Date(now - 4 * 60 * 60 * 1000).toISOString(),
   },
   {
     id: "3",
@@ -34,6 +36,6 @@ export const communityPosts: Post[] = [
     likes: 36,
     comments: 8,
     category: "local",
-    createdAt: "1d ago",
+    createdAt: new Date(now - 24 * 60 * 60 * 1000).toISOString(),
   },
 ];

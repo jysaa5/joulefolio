@@ -38,6 +38,37 @@
       }
     }
   },
+  "community": {
+    "title": "Community",
+    "description": "Connect with prosumers and share your sustainable energy activity.",
+    "filters": {
+      "all": "All",
+      "friends": "Friends",
+      "local": "Local",
+      "review": "Reviews"
+    },
+    "cta": {
+      "title": "Share your energy story",
+      "description": "Post your solar production, energy sharing, or carbon saving activity.",
+      "button": "Write Post"
+    },
+    "ranking": {
+      "title": "Green Ranking",
+      "description": "Top carbon savers this month",
+      "carbonSaved": "Carbon saved"
+    },
+    "post": {
+      "categories": {
+        "friends": "Friends",
+        "local": "Local",
+        "review": "Review"
+      },
+      "generated": "Generated",
+      "savedCarbon": "Carbon Saved",
+      "comment": "Comment",
+      "addFriend": "Add Friend"
+    }
+  },
   "dashboard": {
     "title": "Joulefolio Dashboard",
     "energyPortfolio": "Energy Portfolio",

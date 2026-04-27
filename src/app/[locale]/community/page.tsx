@@ -7,8 +7,10 @@ import CommunityCtaCard from "@/widgets/community/ui/CommunityCtaCard";
 import CommunityFeed from "@/widgets/community/ui/CommunityFeed";
 import CommunityFilter from "@/widgets/community/ui/CommunityFilter";
 import CommunityRankingCard from "@/widgets/community/ui/CommunityRankingCard";
+import { useTranslations } from "next-intl";
 
 export default function CommunityPage() {
+  const t = useTranslations("community");
   const [selectedCategory, setSelectedCategory] = useState<PostCategory>("all");
 
   const filteredPosts = useMemo(() => {
@@ -24,10 +26,10 @@ export default function CommunityPage() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-foreground">
-            Community
+            {t("title")}
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Connect with prosumers and share your sustainable energy activity.
+            {t("description")}
           </p>
         </div>
 

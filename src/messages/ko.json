@@ -38,6 +38,37 @@
       }
     }
   },
+  "community": {
+    "title": "커뮤니티",
+    "description": "프로슈머들과 연결되고 지속 가능한 에너지 활동을 공유해 보세요.",
+    "filters": {
+      "all": "전체",
+      "friends": "친구",
+      "local": "로컬",
+      "review": "후기"
+    },
+    "cta": {
+      "title": "나의 에너지 이야기를 공유하세요",
+      "description": "태양광 생산량, 에너지 공유, 탄소 절감 활동을 게시해 보세요.",
+      "button": "글쓰기"
+    },
+    "ranking": {
+      "title": "그린 랭킹",
+      "description": "이번 달 탄소 절감 상위 사용자",
+      "carbonSaved": "절감한 탄소"
+    },
+    "post": {
+      "categories": {
+        "friends": "친구",
+        "local": "로컬",
+        "review": "후기"
+      },
+      "generated": "생산량",
+      "savedCarbon": "절감 탄소",
+      "comment": "댓글",
+      "addFriend": "친구 추가"
+    }
+  },
   "dashboard": {
     "title": "Joulefolio 대시보드",
     "energyPortfolio": "에너지 포트폴리오",

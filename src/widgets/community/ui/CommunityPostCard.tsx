@@ -1,20 +1,26 @@
+import { formatRelativeTime } from "@/shared/lib/date/formatRelativeTime";
 import type { Post } from "@/entities/post/model/types";
+import { useLocale, useTranslations } from "next-intl";
 
 type Props = {
   post: Post;
 };
 
 export default function CommunityPostCard({ post }: Props) {
+  const locale = useLocale();
+  const t = useTranslations("community.post");
+  const relativeCreatedAt = formatRelativeTime(post.createdAt, locale);
+
   return (
     <article className="rounded-2xl border border-border bg-card p-6 shadow-sm">
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="font-semibold text-foreground">{post.author}</p>
-          <p className="text-sm text-muted-foreground">{post.createdAt}</p>
+          <p className="text-sm text-muted-foreground">{relativeCreatedAt}</p>
         </div>
 
         <span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
-          {post.category}
+          {t(`categories.${post.category}`)}
         </span>
       </div>
 
@@ -23,7 +29,7 @@ export default function CommunityPostCard({ post }: Props) {
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         {post.generatedKwh !== undefined ? (
           <div className="rounded-xl border border-border p-3">
-            <p className="text-xs text-muted-foreground">Generated</p>
+            <p className="text-xs text-muted-foreground">{t("generated")}</p>
             <p className="mt-1 text-lg font-semibold text-foreground">
               {post.generatedKwh.toFixed(1)} kWh
             </p>
@@ -32,7 +38,7 @@ export default function CommunityPostCard({ post }: Props) {
 
         {post.savedCarbonKg !== undefined ? (
           <div className="rounded-xl border border-border p-3">
-            <p className="text-xs text-muted-foreground">Carbon Saved</p>
+            <p className="text-xs text-muted-foreground">{t("savedCarbon")}</p>
             <p className="mt-1 text-lg font-semibold text-foreground">
               {post.savedCarbonKg.toFixed(1)} kg
             </p>
@@ -45,10 +51,10 @@ export default function CommunityPostCard({ post }: Props) {
           ♥ {post.likes}
         </button>
         <button type="button" className="hover:text-foreground">
-          Comment {post.comments}
+          {t("comment")} {post.comments}
         </button>
         <button type="button" className="ml-auto hover:text-foreground">
-          Add Friend
+          {t("addFriend")}
         </button>
       </div>
     </article>
