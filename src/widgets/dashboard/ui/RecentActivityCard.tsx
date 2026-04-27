@@ -1,4 +1,5 @@
 import Card from "@/shared/ui/card/Card";
+import { useTranslations } from "next-intl";
 
 type ActivityItem = {
   id: string;
@@ -13,12 +14,12 @@ type RecentActivityCardProps = {
 };
 
 export default function RecentActivityCard({ items }: RecentActivityCardProps) {
+  const t = useTranslations("dashboard.recentActivity");
+
   return (
     <Card padding="lg">
-      <h2 className="text-lg font-semibold text-foreground">Recent Activity</h2>
-      <p className="mt-1 text-sm text-muted-foreground">
-        Latest trade and community updates
-      </p>
+      <h2 className="text-lg font-semibold text-foreground">{t("title")}</h2>
+      <p className="mt-1 text-sm text-muted-foreground">{t("description")}</p>
 
       <ul className="mt-6 space-y-4">
         {items.map((item) => (

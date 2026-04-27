@@ -10,6 +10,7 @@ import RecentActivityCard from "@/widgets/dashboard/ui/RecentActivityCard";
 import { useTranslations } from "next-intl";
 
 export default function DashboardPage() {
+  const t = useTranslations("dashboard");
   const summary: EnergySummary = energySummary;
   const totalAsset = summary.surplus + summary.battery;
   const todayEarning = 3.2;
@@ -18,28 +19,32 @@ export default function DashboardPage() {
     {
       id: "1",
       type: "trade" as const,
-      title: "Sold 3.0 kWh to Alice",
-      description:
-        "Your surplus energy was successfully traded this afternoon.",
-      time: "2h ago",
+      title: t("recentActivity.items.soldEnergy.title", {
+        amount: "3.0",
+        name: "Alice",
+      }),
+      description: t("recentActivity.items.soldEnergy.description"),
+      time: t("recentActivity.items.soldEnergy.time", { value: 2 }),
     },
     {
       id: "2",
       type: "community" as const,
-      title: "New community post from Minho",
-      description: "Minho shared today's solar production update.",
-      time: "4h ago",
+      title: t("recentActivity.items.newCommunityPost.title", {
+        name: "Minho",
+      }),
+      description: t("recentActivity.items.newCommunityPost.description", {
+        name: "Minho",
+      }),
+      time: t("recentActivity.items.newCommunityPost.time", { value: 4 }),
     },
     {
       id: "3",
       type: "trade" as const,
-      title: "Stored 2.0 kWh in battery",
-      description: "A portion of today's surplus energy has been saved.",
-      time: "6h ago",
+      title: t("recentActivity.items.storedEnergy.title", { amount: "2.0" }),
+      description: t("recentActivity.items.storedEnergy.description"),
+      time: t("recentActivity.items.storedEnergy.time", { value: 6 }),
     },
   ];
-
-  const t = useTranslations("dashboard");
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-8">
@@ -54,24 +59,24 @@ export default function DashboardPage() {
 
       <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <EnergyMetricCard
-          label="Generated"
+          label={t("metrics.generated.label")}
           value={summary.generated}
-          description="Total energy generated today"
+          description={t("metrics.generated.description")}
         />
         <EnergyMetricCard
-          label="Consumed"
+          label={t("metrics.consumed.label")}
           value={summary.consumed}
-          description="Total energy consumed today"
+          description={t("metrics.consumed.description")}
         />
         <EnergyMetricCard
-          label="Surplus"
+          label={t("metrics.surplus.label")}
           value={summary.surplus}
-          description="Available energy for trade or storage"
+          description={t("metrics.surplus.description")}
         />
         <EnergyMetricCard
-          label="Battery"
+          label={t("metrics.battery.label")}
           value={summary.battery}
-          description="Stored energy asset"
+          description={t("metrics.battery.description")}
         />
       </section>
 
@@ -83,9 +88,9 @@ export default function DashboardPage() {
         <EnergyBreakdownCard consumed={12} stored={6} availableToTrade={6.3} />
         <QuickActionCard
           href="/trade"
-          title="Trade Energy"
-          description="Sell or share your surplus energy with others."
-          buttonText="Go to Trade"
+          title={t("quickAction.tradeEnergy.title")}
+          description={t("quickAction.tradeEnergy.description")}
+          buttonText={t("quickAction.tradeEnergy.button")}
         />
       </section>
 

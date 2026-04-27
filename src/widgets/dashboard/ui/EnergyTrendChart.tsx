@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import {
   CartesianGrid,
   Legend,
@@ -22,6 +23,7 @@ type EnergyTrendChartProps = {
 };
 
 export default function EnergyTrendChart({ data }: EnergyTrendChartProps) {
+  const t = useTranslations("dashboard.energyTrend");
   const totalGenerated = data.reduce((sum, item) => sum + item.generated, 0);
   const totalConsumed = data.reduce((sum, item) => sum + item.consumed, 0);
 
@@ -30,24 +32,24 @@ export default function EnergyTrendChart({ data }: EnergyTrendChartProps) {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h2 className="text-lg font-semibold text-foreground">
-            Energy Trend
+            {t("title")}
           </h2>
           <p className="mt-1 text-sm text-muted-foreground">
-            Compare generated and consumed energy throughout the day
+            {t("description")}
           </p>
         </div>
 
         <div className="grid grid-cols-2 gap-3 sm:min-w-60">
           <div className="rounded-xl border border-border p-3">
-            <p className="text-xs text-muted-foreground">Generated</p>
+            <p className="text-xs text-muted-foreground">{t("generated")}</p>
             <p className="mt-1 text-lg font-semibold text-foreground">
-              {totalGenerated.toFixed(1)} kWh
+              {totalGenerated.toFixed(1)} {t("kwh")}
             </p>
           </div>
           <div className="rounded-xl border border-border p-3">
-            <p className="text-xs text-muted-foreground">Consumed</p>
+            <p className="text-xs text-muted-foreground">{t("consumed")}</p>
             <p className="mt-1 text-lg font-semibold text-foreground">
-              {totalConsumed.toFixed(1)} kWh
+              {totalConsumed.toFixed(1)} {t("kwh")}
             </p>
           </div>
         </div>
@@ -86,7 +88,7 @@ export default function EnergyTrendChart({ data }: EnergyTrendChartProps) {
             <Line
               type="monotone"
               dataKey="generated"
-              name="Generated"
+              name={t("generated")}
               stroke="#10b981"
               strokeWidth={3}
               dot={{ r: 3 }}
@@ -95,7 +97,7 @@ export default function EnergyTrendChart({ data }: EnergyTrendChartProps) {
             <Line
               type="monotone"
               dataKey="consumed"
-              name="Consumed"
+              name={t("consumed")}
               stroke="#3b82f6"
               strokeWidth={3}
               dot={{ r: 3 }}

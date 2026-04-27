@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 type EnergyBreakdownCardProps = {
   consumed: number;
   stored: number;
@@ -9,34 +11,31 @@ export default function EnergyBreakdownCard({
   stored,
   availableToTrade,
 }: EnergyBreakdownCardProps) {
+  const t = useTranslations("dashboard.energyBreakdown");
   const total = consumed + stored + availableToTrade;
 
   const items = [
     {
-      label: "Consumed",
+      label: t("items.consumed.label"),
       value: consumed,
-      description: "Used for household consumption",
+      description: t("items.consumed.description"),
     },
     {
-      label: "Stored",
+      label: t("items.stored.label"),
       value: stored,
-      description: "Saved in battery storage",
+      description: t("items.stored.description"),
     },
     {
-      label: "Available to Trade",
+      label: t("items.availableToTrade.label"),
       value: availableToTrade,
-      description: "Ready for selling or sharing",
+      description: t("items.availableToTrade.description"),
     },
   ];
 
   return (
     <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-foreground">
-        Energy Breakdown
-      </h2>
-      <p className="mt-1 text-sm text-muted-foreground">
-        How your energy is currently allocated
-      </p>
+      <h2 className="text-lg font-semibold text-foreground">{t("title")}</h2>
+      <p className="mt-1 text-sm text-muted-foreground">{t("description")}</p>
 
       <div className="mt-6 space-y-4">
         {items.map((item) => {

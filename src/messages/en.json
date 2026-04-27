@@ -14,6 +14,84 @@
     "title": "Joulefolio Dashboard",
     "energyPortfolio": "Energy Portfolio",
     "todayEarning": "Today's Earning",
-    "portfolioStatus": "Portfolio Status"
+    "portfolioStatus": "Portfolio Status",
+    "portfolioDescription": "Total energy available for use, storage, or trade",
+    "units": {
+      "kwh": "kWh"
+    },
+    "statuses": {
+      "stable": "Stable"
+    },
+    "metrics": {
+      "generated": {
+        "label": "Generated",
+        "description": "Total energy generated today"
+      },
+      "consumed": {
+        "label": "Consumed",
+        "description": "Total energy consumed today"
+      },
+      "surplus": {
+        "label": "Surplus",
+        "description": "Available energy for trade or storage"
+      },
+      "battery": {
+        "label": "Battery",
+        "description": "Stored energy asset"
+      }
+    },
+    "energyTrend": {
+      "title": "Energy Trend",
+      "description": "Compare generated and consumed energy throughout the day",
+      "generated": "Generated",
+      "consumed": "Consumed",
+      "kwh": "kWh"
+    },
+    "energyBreakdown": {
+      "title": "Energy Breakdown",
+      "description": "How your energy is currently allocated",
+      "items": {
+        "consumed": {
+          "label": "Consumed",
+          "description": "Used for household consumption"
+        },
+        "stored": {
+          "label": "Stored",
+          "description": "Saved in battery storage"
+        },
+        "availableToTrade": {
+          "label": "Available to Trade",
+          "description": "Ready for selling or sharing"
+        }
+      }
+    },
+    "quickAction": {
+      "tradeEnergy": {
+        "title": "Trade Energy",
+        "description": "Sell or share your surplus energy with others.",
+        "button": "Go to Trade"
+      }
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "description": "Latest trade and community updates",
+      "items": {
+        "soldEnergy": {
+          "title": "Sold {amount} kWh to {name}",
+          "description": "Your surplus energy was successfully traded this afternoon.",
+          "time": "{value}h ago"
+        },
+        "newCommunityPost": {
+          "title": "New community post from {name}",
+          "description": "{name} shared today's solar production update.",
+          "time": "{value}h ago"
+        },
+        "storedEnergy": {
+          "title": "Stored {amount} kWh in battery",
+          "description": "A portion of today's surplus energy has been saved.",
+          "time": "{value}h ago"
+        }
+      }
+    }
   }
 }

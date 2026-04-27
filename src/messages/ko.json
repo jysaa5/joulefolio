@@ -1,7 +1,7 @@
 {
   "home": {
     "hello": "안녕하세요",
-    "welcome": "Joulefolio에 오신 것을 환영합니다",
+    "welcome": "Joulefolio에 오신 것을 환영합니다.",
     "dashboard": "대시보드로 이동",
     "trade": "거래로 이동"
   },
@@ -14,6 +14,84 @@
     "title": "Joulefolio 대시보드",
     "energyPortfolio": "에너지 포트폴리오",
     "todayEarning": "오늘의 수익",
-    "portfolioStatus": "포트폴리오 상태"
+    "portfolioStatus": "포트폴리오 상태",
+    "portfolioDescription": "사용, 저장 또는 거래할 수 있는 전체 에너지 자산입니다.",
+    "units": {
+      "kwh": "kWh"
+    },
+    "statuses": {
+      "stable": "안정적"
+    },
+    "metrics": {
+      "generated": {
+        "label": "생산량",
+        "description": "오늘 생성된 총 에너지입니다."
+      },
+      "consumed": {
+        "label": "소비량",
+        "description": "오늘 사용한 총 에너지입니다."
+      },
+      "surplus": {
+        "label": "잉여 에너지",
+        "description": "거래 또는 저장 가능한 에너지입니다."
+      },
+      "battery": {
+        "label": "배터리",
+        "description": "저장된 에너지 자산입니다."
+      }
+    },
+    "energyTrend": {
+      "title": "에너지 추이",
+      "description": "하루 동안의 생산량과 소비량을 비교합니다.",
+      "generated": "생산량",
+      "consumed": "소비량",
+      "kwh": "kWh"
+    },
+    "energyBreakdown": {
+      "title": "에너지 구성",
+      "description": "에너지가 현재 어떻게 배분되어 있는지 보여줍니다.",
+      "items": {
+        "consumed": {
+          "label": "소비됨",
+          "description": "가정 내 소비에 사용되었습니다."
+        },
+        "stored": {
+          "label": "저장됨",
+          "description": "배터리 저장소에 보관되었습니다."
+        },
+        "availableToTrade": {
+          "label": "거래 가능",
+          "description": "판매 또는 공유할 준비가 되었습니다."
+        }
+      }
+    },
+    "quickAction": {
+      "tradeEnergy": {
+        "title": "에너지 거래",
+        "description": "잉여 에너지를 다른 사용자에게 판매하거나 공유하세요.",
+        "button": "거래하러 가기"
+      }
+    },
+    "recentActivity": {
+      "title": "최근 활동",
+      "description": "최근 거래 및 커뮤니티 업데이트입니다.",
+      "items": {
+        "soldEnergy": {
+          "title": "{name}님에게 {amount} kWh 판매",
+          "description": "오늘 오후 잉여 에너지 거래가 성공적으로 완료되었습니다.",
+          "time": "{value}시간 전"
+        },
+        "newCommunityPost": {
+          "title": "{name}님의 새 커뮤니티 게시글",
+          "description": "{name}님이 오늘의 태양광 생산량 업데이트를 공유했습니다.",
+          "time": "{value}시간 전"
+        },
+        "storedEnergy": {
+          "title": "배터리에 {amount} kWh 저장",
+          "description": "오늘의 잉여 에너지 일부가 저장되었습니다.",
+          "time": "{value}시간 전"
+        }
+      }
+    }
   }
 }

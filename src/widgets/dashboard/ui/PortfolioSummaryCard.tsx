@@ -14,8 +14,8 @@ type PortfolioSummaryCardProps = {
 export default function PortfolioSummaryCard({
   totalAsset,
   todayEarning,
-  description = "Total energy asset qavailable for use, storage, or trade",
-  currentStatus = "Stable",
+  description,
+  currentStatus,
 }: PortfolioSummaryCardProps) {
   const t = useTranslations("dashboard");
   return (
@@ -24,16 +24,16 @@ export default function PortfolioSummaryCard({
         {t("energyPortfolio")}
       </p>
       <h2 className="mt-2 text-4xl font-bold text-(--color-foreground)">
-        {totalAsset.toFixed(1)} kWh
+        {totalAsset.toFixed(1)} {t("units.kwh")}
       </h2>
       <p className="mt-1 text-sm text-(--color-muted-foreground)">
-        {description}
+        {description ?? t("portfolioDescription")}
       </p>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border border-border p-4">
           <p className="text-sm text-muted-foreground">{t("todayEarning")}</p>
           <p className="mt-2 text-2xl font-semibold text-foreground">
-            +{todayEarning.toFixed(1)} kWh
+            +{todayEarning.toFixed(1)} {t("units.kwh")}
           </p>
         </div>
         <div className="rounded-xl border border-border p-4">
@@ -41,7 +41,7 @@ export default function PortfolioSummaryCard({
             {t("portfolioStatus")}
           </p>
           <p className="mt-2 text-2xl font-semibold text-foreground">
-            {currentStatus}
+            {currentStatus ?? t("statuses.stable")}
           </p>
         </div>
       </div>
