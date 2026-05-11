@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 
 import PortfolioSummaryCard from "./PortfolioSummaryCard";
 
-import enMessages from "@/messages/en.json";
+import enMessages from "@/i18n/messages/en.json";
 
 function renderWithIntl(ui: ReactNode) {
   return render(
