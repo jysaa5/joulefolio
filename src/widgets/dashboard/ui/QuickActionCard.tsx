@@ -15,7 +15,7 @@ export default function QuickActionCard({
   buttonText,
 }: QuickActionCardProps) {
   return (
-    <Card padding="lg">
+    <Card padding="lg" data-testid="quick-action-card">
       <h2 className="text-lg font-semibold text-(--color-foreground)">
         {title}
       </h2>
@@ -24,6 +24,7 @@ export default function QuickActionCard({
       </p>
       <Link
         href={href}
+        data-testid="quick-action-link"
         className="mt-4 inline-flex items-center rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
       >
         {buttonText}

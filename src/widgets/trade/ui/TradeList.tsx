@@ -9,7 +9,10 @@ export default function TradeList({ trades }: Props) {
   const t = useTranslations("trade.list");
 
   return (
-    <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+    <section
+      className="rounded-2xl border border-border bg-card p-6 shadow-sm"
+      data-testid="trade-history-card"
+    >
       <h2 className="text-lg font-semibold text-foreground">{t("title")}</h2>
 
       <ul className="mt-4 space-y-3">
@@ -17,6 +20,7 @@ export default function TradeList({ trades }: Props) {
           <li
             key={trade.id}
             className="flex items-center justify-between rounded-lg border border-border p-4"
+            data-testid={`trade-history-item-${trade.id}`}
           >
             <div>
               <p className="text-sm font-medium text-foreground">

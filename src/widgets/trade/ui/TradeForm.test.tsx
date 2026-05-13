@@ -1,23 +1,10 @@
-import type { ReactNode } from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "@/tests/test-utils";
 import userEvent from "@testing-library/user-event";
-import { NextIntlClientProvider } from "next-intl";
-
 import TradeForm from "./TradeForm";
-
-import enMessages from "@/i18n/messages/en.json";
-
-function renderWithIntl(ui: ReactNode) {
-  return render(
-    <NextIntlClientProvider locale="en" messages={enMessages}>
-      {ui}
-    </NextIntlClientProvider>,
-  );
-}
 
 describe("TradeForm", () => {
   it("renders translated form controls and default estimated price", () => {
-    renderWithIntl(<TradeForm />);
+    render(<TradeForm />);
 
     expect(
       screen.getByRole("heading", { name: "Trade Energy" }),
@@ -36,7 +23,7 @@ describe("TradeForm", () => {
   it("updates the estimated price when the amount changes", async () => {
     const user = userEvent.setup();
 
-    renderWithIntl(<TradeForm />);
+    render(<TradeForm />);
 
     const input = screen.getByRole("spinbutton");
 

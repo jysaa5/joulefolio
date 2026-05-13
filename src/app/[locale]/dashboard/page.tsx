@@ -59,21 +59,25 @@ export default function DashboardPage() {
 
       <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <EnergyMetricCard
+          testId="metric-generated"
           label={t("metrics.generated.label")}
           value={summary.generated}
           description={t("metrics.generated.description")}
         />
         <EnergyMetricCard
+          testId="metric-consumed"
           label={t("metrics.consumed.label")}
           value={summary.consumed}
           description={t("metrics.consumed.description")}
         />
         <EnergyMetricCard
+          testId="metric-surplus"
           label={t("metrics.surplus.label")}
           value={summary.surplus}
           description={t("metrics.surplus.description")}
         />
         <EnergyMetricCard
+          testId="metric-battery"
           label={t("metrics.battery.label")}
           value={summary.battery}
           description={t("metrics.battery.description")}

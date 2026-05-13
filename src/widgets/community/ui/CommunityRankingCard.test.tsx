@@ -1,22 +1,9 @@
-import type { ReactNode } from "react";
-import { render, screen } from "@testing-library/react";
-import { NextIntlClientProvider } from "next-intl";
-
+import { render, screen } from "@/tests/test-utils";
 import CommunityRankingCard from "./CommunityRankingCard";
-
-import enMessages from "@/i18n/messages/en.json";
-
-function renderWithIntl(ui: ReactNode) {
-  return render(
-    <NextIntlClientProvider locale="en" messages={enMessages}>
-      {ui}
-    </NextIntlClientProvider>,
-  );
-}
 
 describe("CommunityRankingCard", () => {
   it("renders translated heading, description, and ranking items", () => {
-    renderWithIntl(<CommunityRankingCard />);
+    render(<CommunityRankingCard />);
 
     expect(
       screen.getByRole("heading", { name: "Green Ranking" }),

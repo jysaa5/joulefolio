@@ -1,24 +1,13 @@
-import type { ReactNode } from "react";
-import { render, screen, within } from "@testing-library/react";
-import { NextIntlClientProvider } from "next-intl";
+import { render, screen, within } from "@/tests/test-utils";
 import { vi } from "vitest";
 
 import CommunityFeed from "./CommunityFeed";
 
-import enMessages from "@/i18n/messages/en.json";
 import type { Post } from "@/entities/post/model/types";
 
 vi.mock("@/shared/lib/date/formatRelativeTime", () => ({
   formatRelativeTime: () => "2 hours ago",
 }));
-
-function renderWithIntl(ui: ReactNode) {
-  return render(
-    <NextIntlClientProvider locale="en" messages={enMessages}>
-      {ui}
-    </NextIntlClientProvider>,
-  );
-}
 
 describe("CommunityFeed", () => {
   it("renders one post card per post", () => {
@@ -46,7 +35,7 @@ describe("CommunityFeed", () => {
       },
     ];
 
-    renderWithIntl(<CommunityFeed posts={posts} />);
+    render(<CommunityFeed posts={posts} />);
 
     const articles = screen.getAllByRole("article");
     const firstPost = articles[0];
@@ -73,7 +62,7 @@ describe("CommunityFeed", () => {
   });
 
   it("renders an empty section when there are no posts", () => {
-    const { container } = renderWithIntl(<CommunityFeed posts={[]} />);
+    const { container } = render(<CommunityFeed posts={[]} />);
 
     expect(container.querySelector("section")).toBeInTheDocument();
     expect(screen.queryByRole("article")).not.toBeInTheDocument();

@@ -1,24 +1,13 @@
-import type { ReactNode } from "react";
-import { render, screen } from "@testing-library/react";
-import { NextIntlClientProvider } from "next-intl";
+import { render, screen } from "@/tests/test-utils";
 import { vi } from "vitest";
 
 import CommunityPostCard from "./CommunityPostCard";
 
 import type { Post } from "@/entities/post/model/types";
-import enMessages from "@/i18n/messages/en.json";
 
 vi.mock("@/shared/lib/date/formatRelativeTime", () => ({
   formatRelativeTime: () => "2 hours ago",
 }));
-
-function renderWithIntl(ui: ReactNode) {
-  return render(
-    <NextIntlClientProvider locale="en" messages={enMessages}>
-      {ui}
-    </NextIntlClientProvider>,
-  );
-}
 
 describe("CommunityPostCard", () => {
   it("renders translated post metadata and engagement actions", () => {
@@ -34,7 +23,7 @@ describe("CommunityPostCard", () => {
       createdAt: "2026-05-11T00:00:00.000Z",
     };
 
-    renderWithIntl(<CommunityPostCard post={post} />);
+    render(<CommunityPostCard post={post} />);
 
     expect(screen.getByRole("article")).toBeInTheDocument();
     expect(screen.getByText("Alice")).toBeInTheDocument();
@@ -67,7 +56,7 @@ describe("CommunityPostCard", () => {
       createdAt: "2026-05-10T22:00:00.000Z",
     };
 
-    renderWithIntl(<CommunityPostCard post={post} />);
+    render(<CommunityPostCard post={post} />);
 
     expect(screen.getByText("Review")).toBeInTheDocument();
     expect(screen.queryByText("Generated")).not.toBeInTheDocument();

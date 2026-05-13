@@ -1,22 +1,9 @@
-import type { ReactNode } from "react";
-import { render, screen } from "@testing-library/react";
-import { NextIntlClientProvider } from "next-intl";
-
+import { render, screen } from "@/tests/test-utils";
 import CommunityCtaCard from "./CommunityCtaCard";
-
-import enMessages from "@/i18n/messages/en.json";
-
-function renderWithIntl(ui: ReactNode) {
-  return render(
-    <NextIntlClientProvider locale="en" messages={enMessages}>
-      {ui}
-    </NextIntlClientProvider>,
-  );
-}
 
 describe("CommunityCtaCard", () => {
   it("renders translated title, description, and cta button", () => {
-    renderWithIntl(<CommunityCtaCard />);
+    render(<CommunityCtaCard />);
 
     expect(
       screen.getByRole("heading", { name: "Share your energy story" }),

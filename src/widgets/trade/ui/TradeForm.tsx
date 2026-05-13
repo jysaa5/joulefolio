@@ -12,14 +12,20 @@ export default function TradeForm() {
   const totalPrice = amount * pricePerKwh;
 
   return (
-    <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+    <section
+      className="rounded-2xl border border-border bg-card p-6 shadow-sm"
+      data-testid="trade-form-card"
+    >
       <h2 className="text-lg font-semibold text-foreground">{t("title")}</h2>
 
       <div className="mt-4">
         <label className="text-sm text-muted-foreground">
           {t("targetLabel")}
         </label>
-        <select className="mt-2 w-full rounded-lg border border-border p-2 bg-background">
+        <select
+          data-testid="trade-target-select"
+          className="mt-2 w-full rounded-lg border border-border p-2 bg-background"
+        >
           <option>{t("targets.alice")}</option>
           <option>{t("targets.bob")}</option>
         </select>
@@ -30,6 +36,7 @@ export default function TradeForm() {
           {t("amountLabel", { unit: t("kwh") })}
         </label>
         <input
+          data-testid="trade-amount-input"
           type="number"
           value={amount}
           onChange={(e) => setAmount(Number(e.target.value))}
@@ -37,7 +44,10 @@ export default function TradeForm() {
         />
       </div>
 
-      <div className="mt-4 rounded-lg bg-background p-4">
+      <div
+        className="mt-4 rounded-lg bg-background p-4"
+        data-testid="trade-estimated-price"
+      >
         <p className="text-sm text-muted-foreground">{t("estimatedPrice")}</p>
         <p className="mt-1 text-xl font-semibold text-foreground">
           ₩ {totalPrice.toLocaleString()}

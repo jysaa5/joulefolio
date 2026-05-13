@@ -1,11 +1,7 @@
-import type { ReactNode } from "react";
-import { render, screen } from "@testing-library/react";
-import { NextIntlClientProvider } from "next-intl";
+import { render, screen } from "@/tests/test-utils";
 import { vi } from "vitest";
 
 import EnergyTrendChart from "./EnergyTrendChart";
-
-import enMessages from "@/i18n/messages/en.json";
 
 vi.mock("recharts", () => {
   const Mock = ({
@@ -29,17 +25,9 @@ vi.mock("recharts", () => {
   };
 });
 
-function renderWithIntl(ui: ReactNode) {
-  return render(
-    <NextIntlClientProvider locale="en" messages={enMessages}>
-      {ui}
-    </NextIntlClientProvider>,
-  );
-}
-
 describe("EnergyTrendChart", () => {
   it("renders translated summary totals and chart series labels", () => {
-    renderWithIntl(
+    render(
       <EnergyTrendChart
         data={[
           { time: "08:00", generated: 3.2, consumed: 1.1 },

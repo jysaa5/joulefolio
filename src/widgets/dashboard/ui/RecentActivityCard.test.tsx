@@ -1,22 +1,9 @@
-import type { ReactNode } from "react";
-import { render, screen } from "@testing-library/react";
-import { NextIntlClientProvider } from "next-intl";
-
+import { render, screen } from "@/tests/test-utils";
 import RecentActivityCard from "./RecentActivityCard";
-
-import enMessages from "@/i18n/messages/en.json";
-
-function renderWithIntl(ui: ReactNode) {
-  return render(
-    <NextIntlClientProvider locale="en" messages={enMessages}>
-      {ui}
-    </NextIntlClientProvider>,
-  );
-}
 
 describe("RecentActivityCard", () => {
   it("renders translated heading and activity items", () => {
-    renderWithIntl(
+    render(
       <RecentActivityCard
         items={[
           {

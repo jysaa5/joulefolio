@@ -16,16 +16,19 @@ export default function EnergyBreakdownCard({
 
   const items = [
     {
+      id: "consumed",
       label: t("items.consumed.label"),
       value: consumed,
       description: t("items.consumed.description"),
     },
     {
+      id: "stored",
       label: t("items.stored.label"),
       value: stored,
       description: t("items.stored.description"),
     },
     {
+      id: "available-to-trade",
       label: t("items.availableToTrade.label"),
       value: availableToTrade,
       description: t("items.availableToTrade.description"),
@@ -33,7 +36,10 @@ export default function EnergyBreakdownCard({
   ];
 
   return (
-    <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+    <section
+      className="rounded-2xl border border-border bg-card p-6 shadow-sm"
+      data-testid="energy-breakdown-card"
+    >
       <h2 className="text-lg font-semibold text-foreground">{t("title")}</h2>
       <p className="mt-1 text-sm text-muted-foreground">{t("description")}</p>
 
@@ -42,7 +48,7 @@ export default function EnergyBreakdownCard({
           const width = total > 0 ? (item.value / total) * 100 : 0;
 
           return (
-            <div key={item.label}>
+            <div key={item.id} data-testid={`energy-breakdown-item-${item.id}`}>
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-foreground">

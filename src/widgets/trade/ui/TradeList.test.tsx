@@ -1,19 +1,6 @@
-import type { ReactNode } from "react";
-import { render, screen } from "@testing-library/react";
-import { NextIntlClientProvider } from "next-intl";
-
+import { render, screen } from "@/tests/test-utils";
 import TradeList from "./TradeList";
-
-import enMessages from "@/i18n/messages/en.json";
 import type { Trade } from "@/entities/trade/model/types";
-
-function renderWithIntl(ui: ReactNode) {
-  return render(
-    <NextIntlClientProvider locale="en" messages={enMessages}>
-      {ui}
-    </NextIntlClientProvider>,
-  );
-}
 
 describe("TradeList", () => {
   it("renders translated heading and each trade row", () => {
@@ -36,7 +23,7 @@ describe("TradeList", () => {
       },
     ];
 
-    renderWithIntl(<TradeList trades={trades} />);
+    render(<TradeList trades={trades} />);
 
     expect(
       screen.getByRole("heading", { name: "Trade History" }),

@@ -2,6 +2,7 @@ import Card from "@/shared/ui/card/Card";
 import { useTranslations } from "next-intl";
 
 type EnergyMetricCardProps = {
+  testId?: string;
   label: string;
   value: number;
   unit?: string;
@@ -9,6 +10,7 @@ type EnergyMetricCardProps = {
 };
 
 export default function EnergyMetricCard({
+  testId,
   label,
   value,
   unit = "kWh",
@@ -17,7 +19,11 @@ export default function EnergyMetricCard({
   const t = useTranslations("dashboard.units");
 
   return (
-    <Card padding="md" className="transition hover:shadow-md">
+    <Card
+      padding="md"
+      className="transition hover:shadow-md"
+      data-testid={testId}
+    >
       <p className="text-sm text-(--color-muted-foreground)">{label}</p>
       <p className="mt-2 text-2xl font-semibold text-(--color-foreground)">
         {value.toFixed(1)} {unit === "kWh" ? t("kwh") : unit}

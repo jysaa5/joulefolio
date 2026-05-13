@@ -1,5 +1,4 @@
-import { render, screen } from "@testing-library/react";
-
+import { render, screen } from "@/tests/test-utils";
 import QuickActionCard from "./QuickActionCard";
 
 describe("QuickActionCard", () => {

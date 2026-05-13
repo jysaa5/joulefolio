@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "@/tests/test-utils";
 import { NextIntlClientProvider } from "next-intl";
 
 import EnergyBreakdownCard from "./EnergyBreakdownCard";

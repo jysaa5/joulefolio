@@ -1,24 +1,9 @@
-import type { ReactNode } from "react";
-import { render, screen } from "@testing-library/react";
-import { NextIntlClientProvider } from "next-intl";
-
+import { render, screen } from "@/tests/test-utils";
 import PortfolioSummaryCard from "./PortfolioSummaryCard";
-
-import enMessages from "@/i18n/messages/en.json";
-
-function renderWithIntl(ui: ReactNode) {
-  return render(
-    <NextIntlClientProvider locale="en" messages={enMessages}>
-      {ui}
-    </NextIntlClientProvider>,
-  );
-}
 
 describe("PortfolioSummaryCard", () => {
   it("renders asset total, earnings, and default description", () => {
-    renderWithIntl(
-      <PortfolioSummaryCard totalAsset={123.4} todayEarning={5.6} />,
-    );
+    render(<PortfolioSummaryCard totalAsset={123.4} todayEarning={5.6} />);
 
     expect(screen.getByText("Energy Portfolio")).toBeInTheDocument();
     expect(
@@ -33,7 +18,7 @@ describe("PortfolioSummaryCard", () => {
   });
 
   it("renders a custom description when provided", () => {
-    renderWithIntl(
+    render(
       <PortfolioSummaryCard
         totalAsset={42.0}
         todayEarning={1.2}
@@ -45,7 +30,7 @@ describe("PortfolioSummaryCard", () => {
   });
 
   it("renders a portfolio status when provided", () => {
-    renderWithIntl(
+    render(
       <PortfolioSummaryCard
         totalAsset={42.0}
         todayEarning={1.2}
