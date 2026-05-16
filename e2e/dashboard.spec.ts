@@ -1,8 +1,7 @@
 import { expect, test } from "@playwright/test";
 import en from "../src/i18n/messages/en.json";
 import ko from "../src/i18n/messages/ko.json";
-
-const baseUrl = process.env.PLAYWRIGHT_TEST_BASE_URL ?? "http://127.0.0.1:3000";
+import { formatMessage, gotoLocalizedPath } from "./utils";
 
 const dashboardCases = [
   {
@@ -16,7 +15,6 @@ const dashboardCases = [
 ] as const;
 
 for (const { locale, dict } of dashboardCases) {
-  const dashboardUrl = new URL(`/${locale}/dashboard`, baseUrl).toString();
   const messages = {
     title: dict.dashboard.title,
     energyPortfolio: dict.dashboard.energyPortfolio,
@@ -52,8 +50,9 @@ for (const { locale, dict } of dashboardCases) {
   test.describe(`Dashboard page (${locale})`, () => {
     test("renders the dashboard summary, metrics, and recent activity", async ({
       page,
+      baseURL,
     }) => {
-      await page.goto(dashboardUrl);
+      await gotoLocalizedPath(page, baseURL!, locale, "/dashboard");
 
       const generatedMetricCard = page.getByTestId("metric-generated");
       const consumedMetricCard = page.getByTestId("metric-consumed");
@@ -124,25 +123,17 @@ for (const { locale, dict } of dashboardCases) {
 
     test("navigates to the trade page from the quick action card", async ({
       page,
+      baseURL,
     }) => {
-      await page.goto(dashboardUrl);
+      await gotoLocalizedPath(page, baseURL!, locale, "/dashboard");
 
       await page.getByTestId("quick-action-link").click();
 
-      await expect(page).toHaveURL(new RegExp(`/${locale}/trade$`));
+      await expect(page).toHaveURL(/\/trade$/);
       await expect(
         page.getByRole("heading", { level: 1, name: messages.tradeTitle }),
       ).toBeVisible();
       await expect(page.getByText(messages.availableEnergy)).toBeVisible();
     });
   });
-}
-
-function formatMessage(
-  template: string,
-  values: Record<string, string | number>,
-) {
-  return template.replace(/\{(\w+)\}/g, (_, key: string) =>
-    String(values[key]),
-  );
 }

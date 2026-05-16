@@ -1,8 +1,7 @@
 import { expect, test } from "@playwright/test";
 import en from "../src/i18n/messages/en.json";
 import ko from "../src/i18n/messages/ko.json";
-
-const baseUrl = process.env.PLAYWRIGHT_TEST_BASE_URL ?? "http://127.0.0.1:3000";
+import { formatMessage, gotoLocalizedPath } from "./utils";
 
 const tradeCases = [
   {
@@ -16,7 +15,6 @@ const tradeCases = [
 ] as const;
 
 for (const { locale, dict } of tradeCases) {
-  const tradeUrl = new URL(`/${locale}/trade`, baseUrl).toString();
   const messages = {
     title: dict.trade.title,
     availableEnergy: dict.trade.availableEnergy.label,
@@ -36,8 +34,9 @@ for (const { locale, dict } of tradeCases) {
   test.describe(`Trade page (${locale})`, () => {
     test("renders available energy, trade form, and trade history", async ({
       page,
+      baseURL,
     }) => {
-      await page.goto(tradeUrl);
+      await gotoLocalizedPath(page, baseURL!, locale, "/trade");
 
       const availableEnergyCard = page.getByTestId("available-energy-card");
       const tradeFormCard = page.getByTestId("trade-form-card");
@@ -92,8 +91,9 @@ for (const { locale, dict } of tradeCases) {
 
     test("updates the estimated price when entering an amount", async ({
       page,
+      baseURL,
     }) => {
-      await page.goto(tradeUrl);
+      await gotoLocalizedPath(page, baseURL!, locale, "/trade");
 
       const targetSelect = page.getByTestId("trade-target-select");
       const amountInput = page.getByTestId("trade-amount-input");
@@ -112,13 +112,4 @@ for (const { locale, dict } of tradeCases) {
       await expect(estimatedPrice.getByText("₩ 12,500")).toBeVisible();
     });
   });
-}
-
-function formatMessage(
-  template: string,
-  values: Record<string, string | number>,
-) {
-  return template.replace(/\{(\w+)\}/g, (_, key: string) =>
-    String(values[key]),
-  );
 }
