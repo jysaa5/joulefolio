@@ -19,7 +19,8 @@
     "devlog": "bash scripts/generate-devlog.sh",
     "prepare": "husky",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "doctor": "npx react-doctor@latest"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": "eslint --fix",
@@ -52,6 +53,7 @@
     "jsdom": "^29.0.2",
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.3",
+    "react-doctor": "^0.2.14",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.4"
