@@ -10,6 +10,10 @@
     "trade": "Trade",
     "community": "Community"
   },
+  "header": {
+    "languageTrigger": "Language: {locale}",
+    "languageMenu": "Select language"
+  },
   "trade": {
     "title": "Trade",
     "availableEnergy": {

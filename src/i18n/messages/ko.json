@@ -10,6 +10,10 @@
     "trade": "거래",
     "community": "커뮤니티"
   },
+  "header": {
+    "languageTrigger": "언어: {locale}",
+    "languageMenu": "언어 선택"
+  },
   "trade": {
     "title": "거래",
     "availableEnergy": {
