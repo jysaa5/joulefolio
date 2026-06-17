@@ -15,7 +15,7 @@ export default function CommunityPostCard({ post }: Props) {
     <article className="rounded-2xl border border-border bg-card p-6 shadow-sm">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="font-semibold text-foreground">{post.author}</p>
+          <p className="font-semibold text-foreground">{post.author.name}</p>
           <p className="text-sm text-muted-foreground">{relativeCreatedAt}</p>
         </div>
 

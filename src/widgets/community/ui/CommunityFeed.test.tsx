@@ -4,6 +4,7 @@ import { vi } from "vitest";
 import CommunityFeed from "./CommunityFeed";
 
 import type { Post } from "@/entities/post/model/types";
+import { userById } from "@/shared/mock/userMock";
 
 vi.mock("@/shared/lib/date/formatRelativeTime", () => ({
   formatRelativeTime: () => "2 hours ago",
@@ -14,7 +15,7 @@ describe("CommunityFeed", () => {
     const posts: Post[] = [
       {
         id: "1",
-        author: "Alice",
+        author: userById["user-1"],
         content: "Sharing today's solar surplus with my neighbor.",
         generatedKwh: 5.1,
         savedCarbonKg: 2.3,
@@ -25,7 +26,7 @@ describe("CommunityFeed", () => {
       },
       {
         id: "2",
-        author: "Minho",
+        author: userById["user-2"],
         content: "Completed an energy sharing trade this morning.",
         savedCarbonKg: 1.7,
         likes: 18,

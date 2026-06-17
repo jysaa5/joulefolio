@@ -24,7 +24,7 @@ export default function TradeList({ trades }: Props) {
           >
             <div>
               <p className="text-sm font-medium text-foreground">
-                {trade.targetName}
+                {trade.counterparty.name}
               </p>
               <p className="text-xs text-muted-foreground">
                 {trade.amount} {t("kwh")}

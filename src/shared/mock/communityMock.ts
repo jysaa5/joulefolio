@@ -1,11 +1,12 @@
 import type { Post } from "@/entities/post/model/types";
+import { userById } from "@/shared/mock/userMock";
 
 const now = Date.now();
 
 export const communityPosts: Post[] = [
   {
     id: "1",
-    author: "Alice",
+    author: userById["user-1"],
     content:
       "Generated 5.1 kWh with solar today. Sharing the surplus with my neighbor!",
     generatedKwh: 5.1,
@@ -17,7 +18,7 @@ export const communityPosts: Post[] = [
   },
   {
     id: "2",
-    author: "Minho",
+    author: userById["user-2"],
     content:
       "Completed an energy sharing trade. It feels good to turn surplus energy into value.",
     generatedKwh: 3.8,
@@ -29,7 +30,7 @@ export const communityPosts: Post[] = [
   },
   {
     id: "3",
-    author: "Jiyeon",
+    author: userById["user-3"],
     content:
       "This month, I reached the top 10% in carbon savings in my local grid community.",
     savedCarbonKg: 12.4,

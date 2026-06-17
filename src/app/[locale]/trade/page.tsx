@@ -2,6 +2,7 @@ import { Trade } from "@/entities/trade/model/types";
 import AvailableEnergyCard from "@/widgets/trade/ui/AvailableEnergyCard";
 import TradeForm from "@/widgets/trade/ui/TradeForm";
 import TradeList from "@/widgets/trade/ui/TradeList";
+import { userById } from "@/shared/mock/userMock";
 import { useTranslations } from "next-intl";
 
 export default function TradePage() {
@@ -9,7 +10,7 @@ export default function TradePage() {
   const trades: Trade[] = [
     {
       id: "1",
-      targetName: "Alice",
+      counterparty: userById["user-1"],
       amount: 3,
       status: "completed" as const,
       price: 0,
@@ -17,7 +18,7 @@ export default function TradePage() {
     },
     {
       id: "2",
-      targetName: "Bob",
+      counterparty: userById["user-4"],
       amount: 2,
       status: "pending" as const,
       price: 0,

@@ -4,6 +4,7 @@ import { vi } from "vitest";
 import CommunityPostCard from "./CommunityPostCard";
 
 import type { Post } from "@/entities/post/model/types";
+import { userById } from "@/shared/mock/userMock";
 
 vi.mock("@/shared/lib/date/formatRelativeTime", () => ({
   formatRelativeTime: () => "2 hours ago",
@@ -13,7 +14,7 @@ describe("CommunityPostCard", () => {
   it("renders translated post metadata and engagement actions", () => {
     const post: Post = {
       id: "1",
-      author: "Alice",
+      author: userById["user-1"],
       content: "Generated extra solar energy and shared the surplus.",
       generatedKwh: 5.1,
       savedCarbonKg: 2.3,
@@ -48,7 +49,7 @@ describe("CommunityPostCard", () => {
   it("omits optional metric blocks when values are missing", () => {
     const post: Post = {
       id: "2",
-      author: "Minho",
+      author: userById["user-2"],
       content: "Completed an energy sharing trade this morning.",
       likes: 18,
       comments: 3,

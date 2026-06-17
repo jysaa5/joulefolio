@@ -1,13 +1,14 @@
 import { render, screen } from "@/tests/test-utils";
 import TradeList from "./TradeList";
 import type { Trade } from "@/entities/trade/model/types";
+import { userById } from "@/shared/mock/userMock";
 
 describe("TradeList", () => {
   it("renders translated heading and each trade row", () => {
     const trades: Trade[] = [
       {
         id: "1",
-        targetName: "Alice",
+        counterparty: userById["user-1"],
         amount: 3.2,
         price: 3200,
         status: "completed",
@@ -15,7 +16,7 @@ describe("TradeList", () => {
       },
       {
         id: "2",
-        targetName: "Bob",
+        counterparty: userById["user-4"],
         amount: 1.5,
         price: 1500,
         status: "pending",

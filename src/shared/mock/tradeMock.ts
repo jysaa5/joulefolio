@@ -1,7 +1,10 @@
-export const trades = [
+import type { Trade } from "@/entities/trade/model/types";
+import { userById } from "@/shared/mock/userMock";
+
+export const trades: Trade[] = [
   {
     id: "1",
-    targetName: "Alice",
+    counterparty: userById["user-1"],
     amount: 3,
     price: 4500,
     status: "completed",
@@ -9,7 +12,7 @@ export const trades = [
   },
   {
     id: "2",
-    targetName: "Bob",
+    counterparty: userById["user-4"],
     amount: 2,
     price: 3000,
     status: "pending",
