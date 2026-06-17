@@ -10,7 +10,8 @@ export type Trade = {
   counterparty: User;
   amount: number;
   amountUnit: EnergyUnit;
-  price: number;
+  unitPrice: number;
+  totalPrice: number;
   currency: Currency;
   status: TradeStatus;
   createdAt: ISODateString;

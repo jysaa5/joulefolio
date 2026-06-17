@@ -2,6 +2,7 @@ import { render, screen } from "@/tests/test-utils";
 import { vi } from "vitest";
 
 import EnergyTrendChart from "./EnergyTrendChart";
+import { userById } from "@/shared/mock/userMock";
 
 vi.mock("recharts", () => {
   const Mock = ({
@@ -29,10 +30,14 @@ describe("EnergyTrendChart", () => {
   it("renders translated summary totals and chart series labels", () => {
     render(
       <EnergyTrendChart
-        data={[
-          { time: "08:00", generated: 3.2, consumed: 1.1 },
-          { time: "12:00", generated: 5.4, consumed: 2.6 },
-        ]}
+        series={{
+          owner: userById["user-2"],
+          period: "daily",
+          points: [
+            { time: "08:00", generated: 3.2, consumed: 1.1 },
+            { time: "12:00", generated: 5.4, consumed: 2.6 },
+          ],
+        }}
       />,
     );
 

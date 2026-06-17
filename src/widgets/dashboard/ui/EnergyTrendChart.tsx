@@ -1,5 +1,6 @@
 "use client";
 
+import type { EnergyTrendSeries } from "@/entities/energy/model/types";
 import { useTranslations } from "next-intl";
 import {
   CartesianGrid,
@@ -12,20 +13,15 @@ import {
   YAxis,
 } from "recharts";
 
-type EnergyTrendPoint = {
-  time: string;
-  generated: number;
-  consumed: number;
-};
-
 type EnergyTrendChartProps = {
-  data: EnergyTrendPoint[];
+  series: EnergyTrendSeries;
 };
 
-export default function EnergyTrendChart({ data }: EnergyTrendChartProps) {
+export default function EnergyTrendChart({ series }: EnergyTrendChartProps) {
   const t = useTranslations("dashboard.energyTrend");
-  const totalGenerated = data.reduce((sum, item) => sum + item.generated, 0);
-  const totalConsumed = data.reduce((sum, item) => sum + item.consumed, 0);
+  const { points } = series;
+  const totalGenerated = points.reduce((sum, item) => sum + item.generated, 0);
+  const totalConsumed = points.reduce((sum, item) => sum + item.consumed, 0);
 
   return (
     <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
@@ -57,7 +53,7 @@ export default function EnergyTrendChart({ data }: EnergyTrendChartProps) {
 
       <div className="mt-6 h-80 w-full">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data}>
+          <LineChart data={points}>
             <CartesianGrid stroke="var(--border)" strokeDasharray="3 3" />
             <XAxis
               dataKey="time"
