@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { PostCategory } from "@/entities/post/model/types";
+import type { PostFilterCategory } from "@/entities/post/model/types";
 import { communityPosts } from "@/shared/mock/communityMock";
 import CommunityCtaCard from "@/widgets/community/ui/CommunityCtaCard";
 import CommunityFeed from "@/widgets/community/ui/CommunityFeed";
@@ -11,7 +11,8 @@ import { useTranslations } from "next-intl";
 
 export default function CommunityPage() {
   const t = useTranslations("community");
-  const [selectedCategory, setSelectedCategory] = useState<PostCategory>("all");
+  const [selectedCategory, setSelectedCategory] =
+    useState<PostFilterCategory>("all");
 
   const filteredPosts = useMemo(() => {
     if (selectedCategory === "all") {

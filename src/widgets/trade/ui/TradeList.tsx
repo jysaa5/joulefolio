@@ -27,7 +27,7 @@ export default function TradeList({ trades }: Props) {
                 {trade.counterparty.name}
               </p>
               <p className="text-xs text-muted-foreground">
-                {trade.amount} {t("kwh")}
+                {trade.amount} {trade.amountUnit}
               </p>
             </div>
 

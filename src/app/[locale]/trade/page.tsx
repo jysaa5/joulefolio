@@ -12,17 +12,21 @@ export default function TradePage() {
       id: "1",
       counterparty: userById["user-1"],
       amount: 3,
+      amountUnit: "kWh",
       status: "completed" as const,
       price: 0,
-      createdAt: "",
+      currency: "KRW",
+      createdAt: "2026-04-14T00:00:00.000Z",
     },
     {
       id: "2",
       counterparty: userById["user-4"],
       amount: 2,
+      amountUnit: "kWh",
       status: "pending" as const,
       price: 0,
-      createdAt: "",
+      currency: "KRW",
+      createdAt: "2026-04-14T00:00:00.000Z",
     },
   ];
 

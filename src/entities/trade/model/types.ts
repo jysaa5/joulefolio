@@ -1,12 +1,17 @@
 import type { User } from "@/entities/user/model/types";
+import type { ISODateString } from "@/shared/lib/date/types";
 
 export type TradeStatus = "pending" | "completed" | "cancelled";
+export type EnergyUnit = "kWh";
+export type Currency = "KRW";
 
 export type Trade = {
   id: string;
   counterparty: User;
-  amount: number; // kWh
+  amount: number;
+  amountUnit: EnergyUnit;
   price: number;
+  currency: Currency;
   status: TradeStatus;
-  createdAt: string;
+  createdAt: ISODateString;
 };
