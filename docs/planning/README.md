@@ -13,6 +13,7 @@ Current planning documents:
 - `joulefolio-overview.md`: service definition, core value, and rollout scope
 - `joulefolio-screens.md`: screen goals, UI structure, and user flow
 - `joulefolio-engineering.md`: stack, state, domain model, and repo rules
+- `joulefolio-progress.md`: implementation progress snapshot against the planning scope
 
 Suggested naming examples:
 
