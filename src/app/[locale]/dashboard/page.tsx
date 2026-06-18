@@ -12,7 +12,7 @@ import { useTranslations } from "next-intl";
 export default function DashboardPage() {
   const t = useTranslations("dashboard");
   const summary: EnergySummary = energySummary;
-  const totalAsset = summary.surplus + summary.battery;
+  const totalAsset = summary.surplusKwh + summary.batteryKwh;
   const todayEarning = 3.2;
 
   const activityItems = [
@@ -61,25 +61,25 @@ export default function DashboardPage() {
         <EnergyMetricCard
           testId="metric-generated"
           label={t("metrics.generated.label")}
-          value={summary.generated}
+          value={summary.generatedKwh}
           description={t("metrics.generated.description")}
         />
         <EnergyMetricCard
           testId="metric-consumed"
           label={t("metrics.consumed.label")}
-          value={summary.consumed}
+          value={summary.consumedKwh}
           description={t("metrics.consumed.description")}
         />
         <EnergyMetricCard
           testId="metric-surplus"
           label={t("metrics.surplus.label")}
-          value={summary.surplus}
+          value={summary.surplusKwh}
           description={t("metrics.surplus.description")}
         />
         <EnergyMetricCard
           testId="metric-battery"
           label={t("metrics.battery.label")}
-          value={summary.battery}
+          value={summary.batteryKwh}
           description={t("metrics.battery.description")}
         />
       </section>
@@ -90,9 +90,9 @@ export default function DashboardPage() {
 
       <section className="mt-8 grid gap-4 lg:grid-cols-2">
         <EnergyBreakdownCard
-          consumed={summary.consumed}
-          stored={summary.battery}
-          availableToTrade={summary.surplus}
+          consumed={summary.consumedKwh}
+          stored={summary.batteryKwh}
+          availableToTrade={summary.surplusKwh}
         />
         <QuickActionCard
           href="/trade"

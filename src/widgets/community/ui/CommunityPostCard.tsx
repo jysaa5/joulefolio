@@ -48,10 +48,10 @@ export default function CommunityPostCard({ post }: Props) {
 
       <div className="mt-5 flex items-center gap-4 text-sm text-muted-foreground">
         <button type="button" className="hover:text-foreground">
-          ♥ {post.likes}
+          ♥ {post.likesCount}
         </button>
         <button type="button" className="hover:text-foreground">
-          {t("comment")} {post.comments}
+          {t("comment")} {post.commentsCount}
         </button>
         <button type="button" className="ml-auto hover:text-foreground">
           {t("addFriend")}

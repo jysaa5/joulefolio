@@ -1,4 +1,5 @@
 import type { Trade } from "@/entities/trade/model/types";
+import { asISODateString } from "@/shared/lib/date/types";
 import { userById } from "@/shared/mock/userMock";
 
 export const trades: Trade[] = [
@@ -11,7 +12,7 @@ export const trades: Trade[] = [
     totalPrice: 4500,
     currency: "KRW",
     status: "completed",
-    createdAt: "2026-04-14T00:00:00.000Z",
+    createdAt: asISODateString("2026-04-14T00:00:00.000Z"),
   },
   {
     id: "2",
@@ -22,6 +23,6 @@ export const trades: Trade[] = [
     totalPrice: 3000,
     currency: "KRW",
     status: "pending",
-    createdAt: "2026-04-14T00:00:00.000Z",
+    createdAt: asISODateString("2026-04-14T00:00:00.000Z"),
   },
 ];

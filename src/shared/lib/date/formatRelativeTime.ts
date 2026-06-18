@@ -1,3 +1,5 @@
+import type { ISODateString } from "./types";
+
 const MINUTE_IN_MS = 60 * 1000;
 const HOUR_IN_MS = 60 * MINUTE_IN_MS;
 const DAY_IN_MS = 24 * HOUR_IN_MS;
@@ -6,7 +8,7 @@ const MONTH_IN_MS = 30 * DAY_IN_MS;
 const YEAR_IN_MS = 365 * DAY_IN_MS;
 
 export function formatRelativeTime(
-  value: string | Date,
+  value: ISODateString | Date,
   locale: string,
   now = new Date(),
 ) {

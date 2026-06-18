@@ -19,9 +19,12 @@ type EnergyTrendChartProps = {
 
 export default function EnergyTrendChart({ series }: EnergyTrendChartProps) {
   const t = useTranslations("dashboard.energyTrend");
-  const { points } = series;
-  const totalGenerated = points.reduce((sum, item) => sum + item.generated, 0);
-  const totalConsumed = points.reduce((sum, item) => sum + item.consumed, 0);
+  const { points, unit } = series;
+  const totalGenerated = points.reduce(
+    (sum, item) => sum + item.generatedKwh,
+    0,
+  );
+  const totalConsumed = points.reduce((sum, item) => sum + item.consumedKwh, 0);
 
   return (
     <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
@@ -39,13 +42,13 @@ export default function EnergyTrendChart({ series }: EnergyTrendChartProps) {
           <div className="rounded-xl border border-border p-3">
             <p className="text-xs text-muted-foreground">{t("generated")}</p>
             <p className="mt-1 text-lg font-semibold text-foreground">
-              {totalGenerated.toFixed(1)} {t("kwh")}
+              {totalGenerated.toFixed(1)} {unit === "kWh" ? t("kwh") : unit}
             </p>
           </div>
           <div className="rounded-xl border border-border p-3">
             <p className="text-xs text-muted-foreground">{t("consumed")}</p>
             <p className="mt-1 text-lg font-semibold text-foreground">
-              {totalConsumed.toFixed(1)} {t("kwh")}
+              {totalConsumed.toFixed(1)} {unit === "kWh" ? t("kwh") : unit}
             </p>
           </div>
         </div>
@@ -83,7 +86,7 @@ export default function EnergyTrendChart({ series }: EnergyTrendChartProps) {
             />
             <Line
               type="monotone"
-              dataKey="generated"
+              dataKey="generatedKwh"
               name={t("generated")}
               stroke="#10b981"
               strokeWidth={3}
@@ -92,7 +95,7 @@ export default function EnergyTrendChart({ series }: EnergyTrendChartProps) {
             />
             <Line
               type="monotone"
-              dataKey="consumed"
+              dataKey="consumedKwh"
               name={t("consumed")}
               stroke="#3b82f6"
               strokeWidth={3}

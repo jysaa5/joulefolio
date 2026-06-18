@@ -12,8 +12,8 @@ export type Post = {
   content: string;
   generatedKwh?: number;
   savedCarbonKg?: number;
-  likes: number;
-  comments: number;
+  likesCount: number;
+  commentsCount: number;
   category: PostCategory;
   createdAt: ISODateString;
 };

@@ -1,4 +1,5 @@
 import type { Post } from "@/entities/post/model/types";
+import { toISODateString } from "@/shared/lib/date/types";
 import { userById } from "@/shared/mock/userMock";
 
 const now = Date.now();
@@ -11,10 +12,10 @@ export const communityPosts: Post[] = [
       "Generated 5.1 kWh with solar today. Sharing the surplus with my neighbor!",
     generatedKwh: 5.1,
     savedCarbonKg: 2.3,
-    likes: 24,
-    comments: 5,
+    likesCount: 24,
+    commentsCount: 5,
     category: "friends",
-    createdAt: new Date(now - 2 * 60 * 60 * 1000).toISOString(),
+    createdAt: toISODateString(new Date(now - 2 * 60 * 60 * 1000)),
   },
   {
     id: "2",
@@ -23,10 +24,10 @@ export const communityPosts: Post[] = [
       "Completed an energy sharing trade. It feels good to turn surplus energy into value.",
     generatedKwh: 3.8,
     savedCarbonKg: 1.7,
-    likes: 18,
-    comments: 3,
+    likesCount: 18,
+    commentsCount: 3,
     category: "review",
-    createdAt: new Date(now - 4 * 60 * 60 * 1000).toISOString(),
+    createdAt: toISODateString(new Date(now - 4 * 60 * 60 * 1000)),
   },
   {
     id: "3",
@@ -34,9 +35,9 @@ export const communityPosts: Post[] = [
     content:
       "This month, I reached the top 10% in carbon savings in my local grid community.",
     savedCarbonKg: 12.4,
-    likes: 36,
-    comments: 8,
+    likesCount: 36,
+    commentsCount: 8,
     category: "local",
-    createdAt: new Date(now - 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: toISODateString(new Date(now - 24 * 60 * 60 * 1000)),
   },
 ];

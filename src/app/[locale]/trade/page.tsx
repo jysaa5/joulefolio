@@ -1,4 +1,5 @@
 import { Trade } from "@/entities/trade/model/types";
+import { asISODateString } from "@/shared/lib/date/types";
 import AvailableEnergyCard from "@/widgets/trade/ui/AvailableEnergyCard";
 import TradeForm from "@/widgets/trade/ui/TradeForm";
 import TradeList from "@/widgets/trade/ui/TradeList";
@@ -17,7 +18,7 @@ export default function TradePage() {
       unitPrice: 0,
       totalPrice: 0,
       currency: "KRW",
-      createdAt: "2026-04-14T00:00:00.000Z",
+      createdAt: asISODateString("2026-04-14T00:00:00.000Z"),
     },
     {
       id: "2",
@@ -28,7 +29,7 @@ export default function TradePage() {
       unitPrice: 0,
       totalPrice: 0,
       currency: "KRW",
-      createdAt: "2026-04-14T00:00:00.000Z",
+      createdAt: asISODateString("2026-04-14T00:00:00.000Z"),
     },
   ];
 

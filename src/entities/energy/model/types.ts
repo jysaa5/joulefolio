@@ -1,30 +1,33 @@
 import type { User } from "@/entities/user/model/types";
 
 export type EnergyPeriod = "daily";
+export type EnergyUnit = "kWh";
 
 /**
- * generated: 생산한 에너지
- * consumed: 사용한 에너지
- * surplus: 남는 에너지 (generated - consumed)
- * battery: 저장된 에너지
+ * generatedKwh: 생산한 에너지
+ * consumedKwh: 사용한 에너지
+ * surplusKwh: 남는 에너지 (generated - consumed)
+ * batteryKwh: 저장된 에너지
  */
 export type EnergySummary = {
   owner: User;
   period: EnergyPeriod;
-  generated: number;
-  consumed: number;
-  surplus: number;
-  battery: number;
+  unit: EnergyUnit;
+  generatedKwh: number;
+  consumedKwh: number;
+  surplusKwh: number;
+  batteryKwh: number;
 };
 
 export type EnergyTrendPoint = {
   time: string;
-  generated: number;
-  consumed: number;
+  generatedKwh: number;
+  consumedKwh: number;
 };
 
 export type EnergyTrendSeries = {
   owner: User;
   period: EnergyPeriod;
+  unit: EnergyUnit;
   points: EnergyTrendPoint[];
 };

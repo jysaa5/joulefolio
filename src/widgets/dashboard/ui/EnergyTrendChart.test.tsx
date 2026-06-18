@@ -33,9 +33,10 @@ describe("EnergyTrendChart", () => {
         series={{
           owner: userById["user-2"],
           period: "daily",
+          unit: "kWh",
           points: [
-            { time: "08:00", generated: 3.2, consumed: 1.1 },
-            { time: "12:00", generated: 5.4, consumed: 2.6 },
+            { time: "08:00", generatedKwh: 3.2, consumedKwh: 1.1 },
+            { time: "12:00", generatedKwh: 5.4, consumedKwh: 2.6 },
           ],
         }}
       />,
@@ -51,7 +52,11 @@ describe("EnergyTrendChart", () => {
     ).toBeInTheDocument();
     expect(screen.getByText("8.6 kWh")).toBeInTheDocument();
     expect(screen.getByText("3.7 kWh")).toBeInTheDocument();
-    expect(screen.getByTestId("line-generated")).toHaveTextContent("Generated");
-    expect(screen.getByTestId("line-consumed")).toHaveTextContent("Consumed");
+    expect(screen.getByTestId("line-generatedKwh")).toHaveTextContent(
+      "Generated",
+    );
+    expect(screen.getByTestId("line-consumedKwh")).toHaveTextContent(
+      "Consumed",
+    );
   });
 });

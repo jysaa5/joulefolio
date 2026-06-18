@@ -1,4 +1,5 @@
 import { render, screen } from "@/tests/test-utils";
+import { asISODateString } from "@/shared/lib/date/types";
 import TradeList from "./TradeList";
 import type { Trade } from "@/entities/trade/model/types";
 import { userById } from "@/shared/mock/userMock";
@@ -15,7 +16,7 @@ describe("TradeList", () => {
         totalPrice: 3200,
         currency: "KRW",
         status: "completed",
-        createdAt: "2026-05-11T00:00:00.000Z",
+        createdAt: asISODateString("2026-05-11T00:00:00.000Z"),
       },
       {
         id: "2",
@@ -26,7 +27,7 @@ describe("TradeList", () => {
         totalPrice: 1500,
         currency: "KRW",
         status: "pending",
-        createdAt: "2026-05-11T01:00:00.000Z",
+        createdAt: asISODateString("2026-05-11T01:00:00.000Z"),
       },
     ];
 

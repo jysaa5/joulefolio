@@ -4,6 +4,7 @@ import { vi } from "vitest";
 import CommunityPostCard from "./CommunityPostCard";
 
 import type { Post } from "@/entities/post/model/types";
+import { asISODateString } from "@/shared/lib/date/types";
 import { userById } from "@/shared/mock/userMock";
 
 vi.mock("@/shared/lib/date/formatRelativeTime", () => ({
@@ -18,10 +19,10 @@ describe("CommunityPostCard", () => {
       content: "Generated extra solar energy and shared the surplus.",
       generatedKwh: 5.1,
       savedCarbonKg: 2.3,
-      likes: 24,
-      comments: 5,
+      likesCount: 24,
+      commentsCount: 5,
       category: "friends",
-      createdAt: "2026-05-11T00:00:00.000Z",
+      createdAt: asISODateString("2026-05-11T00:00:00.000Z"),
     };
 
     render(<CommunityPostCard post={post} />);
@@ -51,10 +52,10 @@ describe("CommunityPostCard", () => {
       id: "2",
       author: userById["user-2"],
       content: "Completed an energy sharing trade this morning.",
-      likes: 18,
-      comments: 3,
+      likesCount: 18,
+      commentsCount: 3,
       category: "review",
-      createdAt: "2026-05-10T22:00:00.000Z",
+      createdAt: asISODateString("2026-05-10T22:00:00.000Z"),
     };
 
     render(<CommunityPostCard post={post} />);

@@ -1,4 +1,5 @@
 import { formatRelativeTime } from "./formatRelativeTime";
+import { asISODateString } from "./types";
 
 describe("formatRelativeTime", () => {
   const now = new Date("2026-05-11T00:00:00.000Z");
@@ -52,8 +53,12 @@ describe("formatRelativeTime", () => {
   });
 
   it("accepts ISO string input", () => {
-    expect(formatRelativeTime("2026-05-10T00:00:00.000Z", "en", now)).toBe(
-      "yesterday",
-    );
+    expect(
+      formatRelativeTime(
+        asISODateString("2026-05-10T00:00:00.000Z"),
+        "en",
+        now,
+      ),
+    ).toBe("yesterday");
   });
 });
