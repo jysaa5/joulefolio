@@ -72,6 +72,7 @@ src/
   widgets/   Reusable feature-level presentation components
 docs/
   dev-log/   Development log entries
+  planning/  Planning documents and proposals
 ```
 
 ### Routes
@@ -158,6 +159,7 @@ src/
   widgets/   재사용 가능한 기능 단위 프레젠테이션 컴포넌트
 docs/
   dev-log/   개발 로그 문서
+  planning/  기획안 및 제안 문서
 ```
 
 ### 라우트
