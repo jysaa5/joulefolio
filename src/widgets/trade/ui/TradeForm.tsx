@@ -38,12 +38,6 @@ export default function TradeForm() {
               data-testid="trade-target-select"
             >
               <span>{selectedTarget}</span>
-              <span
-                aria-hidden="true"
-                className="text-xs text-muted-foreground"
-              >
-                v
-              </span>
             </DropdownTrigger>
             <DropdownContent
               aria-label={t("targetLabel")}

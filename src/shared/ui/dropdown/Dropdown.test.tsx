@@ -7,6 +7,7 @@ import {
   DropdownItem,
   DropdownTrigger,
 } from "./index";
+import { vi } from "vitest";
 
 describe("Dropdown", () => {
   it("wires the trigger and popover content together", () => {
@@ -24,6 +25,51 @@ describe("Dropdown", () => {
     expect(trigger).toHaveAttribute("aria-controls", content.id);
     expect(trigger).toHaveAttribute("popovertarget", content.id);
     expect(content).toHaveAttribute("popover", "auto");
+  });
+
+  it("renders a chevron icon in the trigger", () => {
+    render(
+      <Dropdown>
+        <DropdownTrigger>Actions</DropdownTrigger>
+        <DropdownContent>
+          <DropdownItem>Rename</DropdownItem>
+        </DropdownContent>
+      </Dropdown>,
+    );
+
+    const trigger = screen.getByRole("button", { name: "Actions" });
+
+    expect(trigger.querySelector("svg")).not.toBeNull();
+  });
+
+  it("hides the chevron when requested", () => {
+    render(
+      <Dropdown>
+        <DropdownTrigger showChevron={false}>Actions</DropdownTrigger>
+        <DropdownContent>
+          <DropdownItem>Rename</DropdownItem>
+        </DropdownContent>
+      </Dropdown>,
+    );
+
+    const trigger = screen.getByRole("button", { name: "Actions" });
+
+    expect(trigger.querySelector("svg")).toBeNull();
+  });
+
+  it("renders a custom icon when provided", () => {
+    render(
+      <Dropdown>
+        <DropdownTrigger icon={<span data-testid="custom-icon">▾</span>}>
+          Actions
+        </DropdownTrigger>
+        <DropdownContent>
+          <DropdownItem>Rename</DropdownItem>
+        </DropdownContent>
+      </Dropdown>,
+    );
+
+    expect(screen.getByTestId("custom-icon")).toBeInTheDocument();
   });
 
   it("renders menu items that close the popover by default", () => {
