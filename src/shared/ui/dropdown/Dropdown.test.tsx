@@ -1,4 +1,5 @@
 import { render, screen } from "@/tests/test-utils";
+import userEvent from "@testing-library/user-event";
 
 import {
   Dropdown,
@@ -40,6 +41,33 @@ describe("Dropdown", () => {
 
     expect(item).toHaveAttribute("popovertarget", content.id);
     expect(item).toHaveAttribute("popovertargetaction", "hide");
+  });
+
+  it("closes the popover explicitly when an item is clicked", async () => {
+    const user = userEvent.setup();
+
+    render(
+      <Dropdown>
+        <DropdownTrigger>Actions</DropdownTrigger>
+        <DropdownContent>
+          <DropdownItem>Rename</DropdownItem>
+        </DropdownContent>
+      </Dropdown>,
+    );
+
+    const content = screen.getByRole("menu", { hidden: true });
+    const hidePopover = vi.fn();
+
+    Object.defineProperty(content, "hidePopover", {
+      configurable: true,
+      value: hidePopover,
+    });
+
+    await user.click(
+      screen.getByRole("menuitem", { hidden: true, name: "Rename" }),
+    );
+
+    expect(hidePopover).toHaveBeenCalledTimes(1);
   });
 
   it("allows keeping the popover open for an item", () => {

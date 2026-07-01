@@ -10,14 +10,28 @@ describe("TradeForm", () => {
       screen.getByRole("heading", { name: "Trade Energy" }),
     ).toBeInTheDocument();
     expect(screen.getByText("Select Target")).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Alice" })).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Bob" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Select Target" }),
+    ).toHaveTextContent("Alice");
     expect(screen.getByText("Amount (kWh)")).toBeInTheDocument();
     expect(screen.getByText("Estimated Price")).toBeInTheDocument();
     expect(screen.getByText("₩ 0")).toBeInTheDocument();
     expect(
       screen.getAllByRole("button", { name: "Request Trade" }),
     ).toHaveLength(2);
+  });
+
+  it("updates the selected target from the dropdown", async () => {
+    const user = userEvent.setup();
+
+    render(<TradeForm />);
+
+    await user.click(screen.getByRole("button", { name: "Select Target" }));
+    await user.click(screen.getByText("Bob"));
+
+    expect(
+      screen.getByRole("button", { name: "Select Target" }),
+    ).toHaveTextContent("Bob");
   });
 
   it("updates the estimated price when the amount changes", async () => {

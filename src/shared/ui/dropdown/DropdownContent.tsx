@@ -14,6 +14,7 @@ export default function DropdownContent({
   children,
   className,
   role = "menu",
+  style,
   ...props
 }: DropdownContentProps) {
   const { anchorId, contentId } = useDropdownContext("DropdownContent");
@@ -30,6 +31,7 @@ export default function DropdownContent({
           "bottom span-left",
           "top span-left",
         ].join(", "),
+        ...style,
       }}
       className={cn(
         "mt-2 min-w-48 rounded-xl border border-(--color-border) bg-(--color-card) p-1 text-(--color-foreground) shadow-lg outline-none",

@@ -1,12 +1,20 @@
 "use client";
 
 import Button from "@/shared/ui/button/Button";
+import {
+  Dropdown,
+  DropdownContent,
+  DropdownItem,
+  DropdownTrigger,
+} from "@/shared/ui";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 export default function TradeForm() {
   const t = useTranslations("trade.form");
   const [amount, setAmount] = useState(0);
+  const targets = [t("targets.alice"), t("targets.bob")];
+  const [selectedTarget, setSelectedTarget] = useState(targets[0]);
 
   const pricePerKwh = 1000;
   const totalPrice = amount * pricePerKwh;
@@ -22,13 +30,40 @@ export default function TradeForm() {
         <label className="text-sm text-muted-foreground">
           {t("targetLabel")}
         </label>
-        <select
-          data-testid="trade-target-select"
-          className="mt-2 w-full rounded-lg border border-border p-2 bg-background"
-        >
-          <option>{t("targets.alice")}</option>
-          <option>{t("targets.bob")}</option>
-        </select>
+        <div className="mt-2">
+          <Dropdown className="flex w-full">
+            <DropdownTrigger
+              aria-label={t("targetLabel")}
+              className="flex w-full items-center justify-between rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
+              data-testid="trade-target-select"
+            >
+              <span>{selectedTarget}</span>
+              <span
+                aria-hidden="true"
+                className="text-xs text-muted-foreground"
+              >
+                v
+              </span>
+            </DropdownTrigger>
+            <DropdownContent
+              aria-label={t("targetLabel")}
+              className="mt-1 min-w-0"
+              style={{ width: "anchor-size(width)" }}
+            >
+              {targets.map((target) => (
+                <DropdownItem
+                  key={target}
+                  aria-pressed={selectedTarget === target}
+                  className="justify-between"
+                  disabled={selectedTarget === target}
+                  onClick={() => setSelectedTarget(target)}
+                >
+                  <span>{target}</span>
+                </DropdownItem>
+              ))}
+            </DropdownContent>
+          </Dropdown>
+        </div>
       </div>
 
       <div className="mt-4">
